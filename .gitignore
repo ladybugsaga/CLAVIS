@@ -43,6 +43,9 @@ bin/
 .vscode/
 *.code-workspace
 
+# Kilo Code
+.kilocode/
+
 # NetBeans
 nbproject/
 nbbuild/
