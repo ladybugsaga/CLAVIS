@@ -43,7 +43,7 @@ Claude: "Here are 10 relevant papers with summaries..."
 |--------|----------|---------------|---------|--------|
 | `clavis-pubmed` | [PubMed](https://pubmed.ncbi.nlm.nih.gov/) | 36M+ papers | [Optional](docs/signup.md) | ✅ Ready |
 | `clavis-europepmc` | [Europe PMC](https://europepmc.org/) | 40M+ papers | None | 🔧 Stub |
-| `clavis-semanticscholar` | [Semantic Scholar](https://www.semanticscholar.org/) | 200M+ papers | [Optional](docs/signup.md) | 🔧 Stub |
+| `clavis-semanticscholar` | [Semantic Scholar](https://www.semanticscholar.org/) | 200M+ papers | [Optional](docs/signup.md) | ✅ Ready |
 | `clavis-arxiv` | [arXiv](https://arxiv.org/) | 2.4M+ preprints | None | 🔧 Stub |
 | `clavis-clinicaltrials` | [ClinicalTrials.gov](https://clinicaltrials.gov/) | 470K+ trials | None | 🔧 Stub |
 | `clavis-drugbank` | [DrugBank](https://go.drugbank.com/) | 16K+ drugs | [Required](docs/signup.md) | 🔧 Stub |

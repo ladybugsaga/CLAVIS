@@ -210,16 +210,102 @@ Retrieve a paper from Europe PMC by ID.
 
 ---
 
-## Semantic Scholar Tools (Stub)
+## Semantic Scholar Tools
 
-### `search_papers`
-Search the Semantic Scholar corpus of 200M+ papers.
+### `s2_search`
 
-### `get_paper`
-Get paper details including AI-generated TL;DR.
+Search Semantic Scholar's 200M+ papers across all fields.
 
-### `get_citations`
-Get papers that cite a given paper.
+**Parameters:**
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `query` | string | ✅ | — | Search query |
+| `maxResults` | number | ❌ | 10 | Max results (1–100) |
+| `year` | string | ❌ | — | Year filter: `"2024"` or `"2020-2024"` |
+| `venue` | string | ❌ | — | Venue filter (e.g., `"Nature"`, `"NeurIPS"`) |
+| `openAccess` | boolean | ❌ | false | Only return open access papers |
+
+---
+
+### `s2_get_paper`
+
+Retrieve a paper by S2 ID, DOI, PMID, or ArXiv ID.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `paperId` | string | ✅ | Paper ID (prefix: `DOI:`, `PMID:`, `ArXiv:`, `CorpusId:`) |
+
+---
+
+### `s2_get_citations`
+
+Get papers that cite a given paper (forward citations).
+
+**Parameters:**
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `paperId` | string | ✅ | — | Paper ID |
+| `maxResults` | number | ❌ | 20 | Max results |
+
+---
+
+### `s2_get_references`
+
+Get papers referenced by a given paper (backward citations).
+
+**Parameters:**
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `paperId` | string | ✅ | — | Paper ID |
+| `maxResults` | number | ❌ | 20 | Max results |
+
+---
+
+### `s2_search_author`
+
+Search for authors by name.
+
+**Parameters:**
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `name` | string | ✅ | — | Author name |
+| `maxResults` | number | ❌ | 10 | Max results |
+
+---
+
+### `s2_get_author`
+
+Get author profile including h-index, citation count, and affiliations.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `authorId` | string | ✅ | Semantic Scholar Author ID |
+
+---
+
+### `s2_get_author_papers`
+
+Get all papers by a specific author.
+
+**Parameters:**
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `authorId` | string | ✅ | — | Author ID |
+| `maxResults` | number | ❌ | 20 | Max results |
+
+---
+
+### `s2_recommend_papers`
+
+AI-powered paper recommendations from seed papers.
+
+**Parameters:**
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `paperIds` | string | ✅ | — | Comma-separated S2 Paper IDs |
+| `maxResults` | number | ❌ | 10 | Max recommendations |
 
 ---
 
