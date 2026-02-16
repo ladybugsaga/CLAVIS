@@ -1,9 +1,18 @@
 package io.clavis.uniprot;
 
 import io.clavis.core.mcp.MCPServer;
+import io.clavis.core.mcp.MCPTool;
+
+import java.util.List;
 
 /**
  * CLAVIS UniProt MCP Server implementation.
+ *
+ * <p>
+ * Provides access to UniProt's 250M+ protein entries with search,
+ * protein details, sequence retrieval, gene/organism search, and
+ * functional annotations.
+ * </p>
  *
  * @author CLAVIS Team
  * @version 1.0.0
@@ -17,8 +26,13 @@ public class UniProtServer extends MCPServer {
 
     @Override
     protected void registerTools() {
-        // TODO: Register uniprot tools
-        logger.info("CLAVIS UniProt MCP Server initialized (stub)");
+        UniProtClient client = new UniProtClient();
+        UniProtTools toolDefinitions = new UniProtTools(client);
+
+        List<MCPTool> toolList = toolDefinitions.getAllTools();
+        tools.addAll(toolList);
+
+        logger.info("CLAVIS UniProt MCP Server initialized with {} tools.", toolList.size());
     }
 
     public static void main(String[] args) {

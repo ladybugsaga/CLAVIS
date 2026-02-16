@@ -352,13 +352,78 @@ Get compound details including structure.
 
 ---
 
-## UniProt Tools (Stub)
+## UniProt Tools
 
-### `search_proteins`
-Search UniProt's protein database.
+### `uniprot_search`
 
-### `get_protein`
-Get protein sequence and annotation.
+Search UniProt's 250M+ protein database.
+
+**Parameters:**
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `query` | string | ✅ | — | Search query |
+| `maxResults` | number | ❌ | 10 | Max results (1–100) |
+| `organism` | string | ❌ | — | Taxonomy ID (e.g., `9606`) |
+| `reviewed` | boolean | ❌ | false | Filter for Swiss-Prot entries |
+
+---
+
+### `uniprot_get_protein`
+
+Get detailed protein information by accession ID.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `accession` | string | ✅ | UniProt accession (e.g., `P01308`) |
+
+---
+
+### `uniprot_get_sequence`
+
+Get the FASTA amino acid sequence for a protein.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `accession` | string | ✅ | UniProt accession |
+
+---
+
+### `uniprot_search_gene`
+
+Search for proteins by gene name.
+
+**Parameters:**
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `geneName` | string | ✅ | — | Gene name (e.g., `BRCA1`) |
+| `organism` | string | ❌ | — | Taxonomy ID |
+| `maxResults` | number | ❌ | 10 | Max results |
+
+---
+
+### `uniprot_get_function`
+
+Get functional annotation and subcellular location.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `accession` | string | ✅ | UniProt accession |
+
+---
+
+### `uniprot_search_organism`
+
+Search proteins within a specific organism.
+
+**Parameters:**
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `organism` | string | ✅ | — | Organism name |
+| `keyword` | string | ❌ | — | Optional keyword filter |
+| `maxResults` | number | ❌ | 10 | Max results |
 
 ---
 

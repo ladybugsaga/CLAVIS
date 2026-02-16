@@ -48,7 +48,7 @@ Claude: "Here are 10 relevant papers with summaries..."
 | `clavis-clinicaltrials` | [ClinicalTrials.gov](https://clinicaltrials.gov/) | 470K+ trials | None | 🔧 Stub |
 | `clavis-drugbank` | [DrugBank](https://go.drugbank.com/) | 16K+ drugs | [Required](docs/signup.md) | 🔧 Stub |
 | `clavis-pubchem` | [PubChem](https://pubchem.ncbi.nlm.nih.gov/) | 100M+ compounds | None | 🔧 Stub |
-| `clavis-uniprot` | [UniProt](https://www.uniprot.org/) | 250M+ proteins | None | 🔧 Stub |
+| `clavis-uniprot` | [UniProt](https://www.uniprot.org/) | 250M+ proteins | None | ✅ Ready |
 | `clavis-kegg` | [KEGG](https://www.kegg.jp/) | 500K+ pathways | None | 🔧 Stub |
 | `clavis-reactome` | [Reactome](https://reactome.org/) | 15K+ pathways | None | 🔧 Stub |
 
