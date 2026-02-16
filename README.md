@@ -1,6 +1,8 @@
 <div align="center">
 
-# 🔑 CLAVIS
+<img src="docs/logo.png" alt="CLAVIS Logo" width="180" />
+
+# CLAVIS
 
 **Unlocking Biomedical Knowledge for AI**
 
