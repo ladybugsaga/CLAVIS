@@ -1,32 +1,84 @@
-# Semantic Scholar Server Guide
+# Semantic Scholar MCP Server
 
-## Overview
-Semantic Scholar uses AI to analyze 200M+ academic papers, providing features like AI-generated TL;DRs, citation contexts, and influential citation detection.
+Access 200M+ academic papers via AI-powered Semantic Scholar tools.
 
-## Features
-- AI-generated paper summaries (TL;DR)
-- Citation and reference graphs
-- Author disambiguation
-- Influential citation detection
-- Fields of study classification
+## Quick Start
 
-## Setup
 ```bash
-mvn clean install -pl clavis-core,clavis-semanticscholar
+# Build
+mvn clean package -pl clavis-semanticscholar
+
+# Run
+java -jar clavis-semanticscholar/target/clavis-semanticscholar-1.0.0-SNAPSHOT.jar
 ```
+
+## Configuration
+
+| Variable | Required | Description |
+|---|---|---|
+| `S2_API_KEY` | No | API key for higher rate limits (1→10 req/s). Get one at [semanticscholar.org/product/api](https://www.semanticscholar.org/product/api) |
+
+## Tools
+
+### `s2_search`
+Search papers with filters for year, venue, and open access.
+```
+"Search for 'transformer architecture' papers from 2023-2024"
+```
+
+### `s2_get_paper`
+Get full paper details by S2 ID, DOI, PMID, or ArXiv ID.
+```
+"Get paper DOI:10.1038/s41586-021-03819-2"
+```
+
+### `s2_get_citations`
+Get papers that cite a given paper (forward citations).
+```
+"Show me papers that cite paper abc123"
+```
+
+### `s2_get_references`
+Get papers referenced by a given paper (backward citations).
+
+### `s2_search_author`
+Search for researchers by name.
+```
+"Search for author Geoffrey Hinton"
+```
+
+### `s2_get_author`
+Get author profile with h-index, citation count, affiliations.
+
+### `s2_get_author_papers`
+List all papers by a specific author.
+
+### `s2_recommend_papers`
+AI-powered paper recommendations from seed papers.
+```
+"Recommend papers similar to abc123,def456"
+```
+
+## MCP Settings
+
+Add to your `mcp_settings.json`:
 
 ```json
-{"mcpServers": {"semanticscholar": {"command": "java", "args": ["-jar", "/path/to/clavis-semanticscholar/target/clavis-semanticscholar-1.0.0-SNAPSHOT.jar"], "env": {"SEMANTIC_SCHOLAR_API_KEY": "optional_key"}}}}
+{
+  "mcpServers": {
+    "clavis-semanticscholar": {
+      "command": "java",
+      "args": [
+        "-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener",
+        "-jar",
+        "/path/to/clavis-semanticscholar-1.0.0-SNAPSHOT.jar"
+      ],
+      "env": {
+        "S2_API_KEY": "your-key-here"
+      },
+      "disabled": false,
+      "alwaysAllow": []
+    }
+  }
+}
 ```
-
-## API Details
-- **Base URL**: `https://api.semanticscholar.org/graph/v1`
-- **Rate Limit**: 1 req/s (free), 10 req/s (with key)
-- **Key**: Optional but recommended — [Get key](https://www.semanticscholar.org/product/api#api-key)
-- **Docs**: [Semantic Scholar API](https://api.semanticscholar.org/)
-
-## Status: 🔧 Stub — Implementation coming soon
-
----
-
-*See also: [PubMed Guide](pubmed-guide.md) | [API Reference](api-reference.md)*
