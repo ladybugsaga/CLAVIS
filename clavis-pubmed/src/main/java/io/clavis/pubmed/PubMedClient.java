@@ -1,24 +1,19 @@
 package io.clavis.pubmed;
 
-import io.clavis.core.config.ConfigManager;
 import io.clavis.core.exception.ApiException;
 import io.clavis.core.http.HttpClientFactory;
 import io.clavis.core.http.RateLimiter;
 import io.clavis.core.http.RetryPolicy;
 import io.clavis.core.logging.StructuredLogger;
-import io.clavis.core.models.Author;
 import io.clavis.core.models.Paper;
-import io.clavis.pubmed.models.PubMedPaper;
 import io.clavis.pubmed.parsers.PubMedXmlParser;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.time.Duration;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -26,13 +21,16 @@ import java.util.Map;
 /**
  * Client for interacting with PubMed E-utilities API.
  *
- * <p>Implements rate limiting (10 req/sec with API key) and
- * automatic retry with exponential backoff.</p>
+ * <p>
+ * Implements rate limiting (10 req/sec with API key) and
+ * automatic retry with exponential backoff.
+ * </p>
  *
  * @author CLAVIS Team
  * @version 1.0.0
  * @since 2025-01-01
- * @see <a href="https://www.ncbi.nlm.nih.gov/books/NBK25501/">E-utilities Documentation</a>
+ * @see <a href="https://www.ncbi.nlm.nih.gov/books/NBK25501/">E-utilities
+ *      Documentation</a>
  */
 public class PubMedClient {
 
@@ -56,7 +54,7 @@ public class PubMedClient {
     public PubMedClient(String apiKey, String email) {
         this.logger = new StructuredLogger(PubMedClient.class);
         this.httpClient = HttpClientFactory.createDefault();
-        
+
         if (apiKey == null || apiKey.trim().isEmpty()) {
             this.apiKey = "";
             this.rateLimiter = new RateLimiter(3);
@@ -95,11 +93,14 @@ public class PubMedClient {
         long startTime = System.currentTimeMillis();
 
         return retryPolicy.execute(() -> {
-            String searchUrl = String.format(
-                    "%s/esearch.fcgi?db=pubmed&term=%s&retmax=%d&retmode=json&api_key=%s&tool=clavis&email=%s",
-                    BASE_URL, urlEncode(query), maxResults, apiKey, email);
+            StringBuilder searchUrl = new StringBuilder(BASE_URL).append("/esearch.fcgi?");
+            searchUrl.append("db=pubmed");
+            searchUrl.append("&term=").append(urlEncode(query));
+            searchUrl.append("&retmax=").append(maxResults);
+            searchUrl.append("&retmode=json");
+            appendStandardParams(searchUrl);
 
-            String searchResponse = executeRateLimitedRequest(searchUrl);
+            String searchResponse = executeRateLimitedRequest(searchUrl.toString());
             List<String> pmids = PubMedXmlParser.parsePmidsFromJson(searchResponse);
 
             if (pmids.isEmpty()) {
@@ -107,11 +108,13 @@ public class PubMedClient {
                 return Collections.<Paper>emptyList();
             }
 
-            String fetchUrl = String.format(
-                    "%s/efetch.fcgi?db=pubmed&id=%s&retmode=xml&api_key=%s&tool=clavis&email=%s",
-                    BASE_URL, String.join(",", pmids), apiKey, email);
+            StringBuilder fetchUrl = new StringBuilder(BASE_URL).append("/efetch.fcgi?");
+            fetchUrl.append("db=pubmed");
+            fetchUrl.append("&id=").append(String.join(",", pmids));
+            fetchUrl.append("&retmode=xml");
+            appendStandardParams(fetchUrl);
 
-            String fetchResponse = executeRateLimitedRequest(fetchUrl);
+            String fetchResponse = executeRateLimitedRequest(fetchUrl.toString());
             List<Paper> papers = xmlParser.parsePapers(fetchResponse);
 
             logger.logApiResponse("pubmed", 200, System.currentTimeMillis() - startTime);
@@ -132,11 +135,13 @@ public class PubMedClient {
         }
 
         return retryPolicy.execute(() -> {
-            String url = String.format(
-                    "%s/efetch.fcgi?db=pubmed&id=%s&retmode=xml&api_key=%s&tool=clavis&email=%s",
-                    BASE_URL, pmid, apiKey, email);
+            StringBuilder url = new StringBuilder(BASE_URL).append("/efetch.fcgi?");
+            url.append("db=pubmed");
+            url.append("&id=").append(pmid);
+            url.append("&retmode=xml");
+            appendStandardParams(url);
 
-            String response = executeRateLimitedRequest(url);
+            String response = executeRateLimitedRequest(url.toString());
             List<Paper> papers = xmlParser.parsePapers(response);
             return papers.isEmpty() ? null : papers.get(0);
         });
@@ -156,11 +161,14 @@ public class PubMedClient {
         }
 
         return retryPolicy.execute(() -> {
-            String linkUrl = String.format(
-                    "%s/elink.fcgi?dbfrom=pubmed&db=pubmed&id=%s&linkname=pubmed_pubmed&retmode=json&api_key=%s",
-                    BASE_URL, pmid, apiKey);
+            StringBuilder linkUrl = new StringBuilder(BASE_URL).append("/elink.fcgi?");
+            linkUrl.append("dbfrom=pubmed&db=pubmed");
+            linkUrl.append("&id=").append(pmid);
+            linkUrl.append("&linkname=pubmed_pubmed");
+            linkUrl.append("&retmode=json");
+            appendStandardParams(linkUrl);
 
-            String linkResponse = executeRateLimitedRequest(linkUrl);
+            String linkResponse = executeRateLimitedRequest(linkUrl.toString());
             List<String> relatedPmids = PubMedXmlParser.parseRelatedPmidsFromJson(linkResponse);
 
             if (relatedPmids.isEmpty()) {
@@ -170,12 +178,117 @@ public class PubMedClient {
             List<String> limitedPmids = relatedPmids.subList(0,
                     Math.min(relatedPmids.size(), maxResults));
 
-            String fetchUrl = String.format(
-                    "%s/efetch.fcgi?db=pubmed&id=%s&retmode=xml&api_key=%s&tool=clavis&email=%s",
-                    BASE_URL, String.join(",", limitedPmids), apiKey, email);
+            StringBuilder fetchUrl = new StringBuilder(BASE_URL).append("/efetch.fcgi?");
+            fetchUrl.append("db=pubmed");
+            fetchUrl.append("&id=").append(String.join(",", limitedPmids));
+            fetchUrl.append("&retmode=xml");
+            appendStandardParams(fetchUrl);
 
-            String fetchResponse = executeRateLimitedRequest(fetchUrl);
+            String fetchResponse = executeRateLimitedRequest(fetchUrl.toString());
             return xmlParser.parsePapers(fetchResponse);
+        });
+    }
+
+    /**
+     * Gets papers citing and cited by the given PMID.
+     *
+     * @param pmid the PubMed ID
+     * @return map with "cited_by" and "references" lists of PMIDs
+     * @throws ApiException if the request fails
+     */
+    public Map<String, List<String>> getTrackedCitations(String pmid) throws ApiException {
+        if (pmid == null || pmid.isEmpty()) {
+            throw new IllegalArgumentException("PMID cannot be null or empty");
+        }
+
+        return retryPolicy.execute(() -> {
+            StringBuilder linkUrl = new StringBuilder(BASE_URL).append("/elink.fcgi?");
+            linkUrl.append("dbfrom=pubmed&db=pubmed");
+            linkUrl.append("&id=").append(pmid);
+            linkUrl.append("&linkname=pubmed_pubmed_citedin,pubmed_pubmed_refs");
+            linkUrl.append("&retmode=json");
+            appendStandardParams(linkUrl);
+
+            String linkResponse = executeRateLimitedRequest(linkUrl.toString());
+
+            // Need a custom parser for this since it returns multiple linksets
+            // For now, let's assume xmlParser helper can adapt or we parse manually here
+            // Helper method in PubMedXmlParser might need update to handle multiple link
+            // names
+            // Let's implement parseCitationsFromJson in parser later, for now just fetch
+            // one direction or implement parsing here?
+            // Actually, PubMedXmlParser.parseRelatedPmidsFromJson takes first linkset.
+            // We need to parse by linkname.
+            return PubMedXmlParser.parseCitationsFromJson(linkResponse);
+        });
+    }
+
+    /**
+     * Retrieves details for multiple papers at once.
+     *
+     * @param pmids list of PMIDs
+     * @return list of papers
+     * @throws ApiException if request fails
+     */
+    public List<Paper> batchRetrieve(List<String> pmids) throws ApiException {
+        if (pmids == null || pmids.isEmpty()) {
+            return Collections.emptyList();
+        }
+        if (pmids.size() > 200) {
+            throw new IllegalArgumentException("Cannot batch retrieve more than 200 papers at once");
+        }
+
+        return retryPolicy.execute(() -> {
+            StringBuilder fetchUrl = new StringBuilder(BASE_URL).append("/efetch.fcgi?");
+            fetchUrl.append("db=pubmed");
+            fetchUrl.append("&id=").append(String.join(",", pmids));
+            fetchUrl.append("&retmode=xml");
+            appendStandardParams(fetchUrl);
+
+            String fetchResponse = executeRateLimitedRequest(fetchUrl.toString());
+            return xmlParser.parsePapers(fetchResponse);
+        });
+    }
+
+    /**
+     * Checks if a paper has been retracted or corrected.
+     *
+     * @param pmid the PubMed ID
+     * @return retraction status message, or null if clean
+     */
+    public String checkRetractions(String pmid) throws ApiException {
+        Paper paper = fetchByPmid(pmid);
+        if (paper == null)
+            return "Paper not found";
+
+        for (String type : paper.getPublicationTypes()) {
+            if (type.toLowerCase().contains("retract")) {
+                return "RETRACTED: " + type;
+            }
+            if (type.toLowerCase().contains("corrected") || type.toLowerCase().contains("erratum")) {
+                return "CORRECTED: " + type;
+            }
+        }
+        return "Clean";
+    }
+
+    /**
+     * Gets links to related databases (Genes, Proteins, ClinicalTrials).
+     *
+     * @param pmid the PubMed ID
+     * @return list of database names linked to this paper
+     */
+    public List<String> getRelatedDatabaseLinks(String pmid) throws ApiException {
+        return retryPolicy.execute(() -> {
+            StringBuilder linkUrl = new StringBuilder(BASE_URL).append("/elink.fcgi?");
+            linkUrl.append("dbfrom=pubmed");
+            linkUrl.append("&id=").append(pmid);
+            linkUrl.append("&cmd=acheck"); // Check all links
+            linkUrl.append("&retmode=json");
+            appendStandardParams(linkUrl);
+
+            String linkResponse = executeRateLimitedRequest(linkUrl.toString());
+            return PubMedXmlParser.parseAvailableLinksFromJson(linkResponse);
         });
     }
 
@@ -192,6 +305,14 @@ public class PubMedClient {
                 throw new IOException("PubMed API error: HTTP " + response.code());
             }
             return response.body().string();
+        }
+    }
+
+    private void appendStandardParams(StringBuilder sb) {
+        sb.append("&tool=clavis");
+        sb.append("&email=").append(urlEncode(email));
+        if (!apiKey.isEmpty()) {
+            sb.append("&api_key=").append(apiKey);
         }
     }
 

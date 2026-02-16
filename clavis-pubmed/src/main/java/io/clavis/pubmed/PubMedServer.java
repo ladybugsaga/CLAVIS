@@ -6,8 +6,10 @@ import io.clavis.core.mcp.MCPServer;
 /**
  * PubMed MCP Server implementation.
  *
- * <p>Provides tools for searching and retrieving biomedical papers
- * from PubMed's 36M+ paper database.</p>
+ * <p>
+ * Provides tools for searching and retrieving biomedical papers
+ * from PubMed's 36M+ paper database.
+ * </p>
  *
  * @author CLAVIS Team
  * @version 1.0.0
@@ -38,6 +40,11 @@ public class PubMedServer extends MCPServer {
         tools.add(toolFactory.createSearchTool());
         tools.add(toolFactory.createGetPaperTool());
         tools.add(toolFactory.createRelatedPapersTool());
+        tools.add(toolFactory.createTrackCitationsTool());
+        tools.add(toolFactory.createBatchRetrieveTool());
+        tools.add(toolFactory.createCheckRetractionsTool());
+        tools.add(toolFactory.createRelatedDatabaseLinksTool());
+        tools.add(toolFactory.createSearchByAuthorTool());
 
         logger.info("Registered {} PubMed tools", tools.size());
     }

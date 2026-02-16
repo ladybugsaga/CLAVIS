@@ -10,9 +10,14 @@ The CLAVIS PubMed server provides AI assistants with access to **PubMed** — th
 
 | Tool | Description | Rate Limit |
 |------|-------------|------------|
-| `search_pubmed` | Full-text search across 36M+ papers | 10 req/s |
-| `get_pubmed_paper` | Fetch single paper by PMID | 10 req/s |
-| `get_related_papers` | Find related papers via citation links | 10 req/s |
+| `search_pubmed` | Full-text search with intelligent filters | 10 req/s |
+| `get_pubmed_paper` | Fetch paper details (abstract, MeSH, keywords) | 10 req/s |
+| `get_related_papers` | Find similar papers based on content | 10 req/s |
+| `track_citations` | Follow forward and backward citation links | 10 req/s |
+| `search_by_author` | Find all papers by a specific researcher | 10 req/s |
+| `check_retractions` | Verify paper integrity and corrections | 10 req/s |
+| `batch_retrieve` | Efficiently fetch multiple papers | 10 req/s |
+| `get_related_database_links` | Connect to genes, proteins, and trials | 10 req/s |
 
 ---
 
@@ -87,6 +92,24 @@ The AI will use: `query: "Alzheimer Disease[MeSH Terms]"`
 
 The AI will use: `query: "pembrolizumab AND non-small cell lung cancer AND clinical trial[Publication Type]"`
 
+### Smart Filters (Advanced)
+> "Find free full-text review articles on CRISPR from 2022-2024"
+
+The AI will use `search_pubmed` with:
+- `query: "CRISPR"`
+- `minYear: "2022"`, `maxYear: "2024"`
+- `articleType: "Review"`
+- `freeFullText: true`
+
+---
+
+## Smart Research Workflows
+
+1. **Literature Expansion**: Search for a topic → Pick a top PMID → Use `get_related_papers` and `track_citations` to build a research graph.
+2. **Integrity Check**: Before citing a paper, always run `check_retractions`.
+3. **Expert Follow-up**: Find an interesting author in a paper → Use `search_by_author` to see their entire body of work.
+4. **Data Connection**: Use `get_related_database_links` to find the specific genes or clinical trials mentioned in a paper.
+
 ---
 
 ## PubMed Query Syntax
@@ -132,6 +155,9 @@ Each paper returned includes:
 | `publicationDate` | string | Publication year |
 | `doi` | string | Digital Object Identifier |
 | `url` | string | PubMed URL |
+| `meshTerms` | string[] | Medical Subject Headings |
+| `publicationTypes` | string[] | Journal Article, Review, etc. |
+| `keywords` | string[] | Author-provided keywords |
 
 ---
 

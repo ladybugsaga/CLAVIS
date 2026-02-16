@@ -10,6 +10,8 @@ import io.clavis.core.models.Paper;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,9 +26,20 @@ public class PubMedXmlParser {
 
     private static final Pattern PMID_PATTERN = Pattern.compile("<PMID[^>]*>(\\d+)</PMID>");
     private static final Pattern TITLE_PATTERN = Pattern.compile("<ArticleTitle>(.*?)</ArticleTitle>", Pattern.DOTALL);
-    private static final Pattern ABSTRACT_PATTERN = Pattern.compile("<AbstractText[^>]*>(.*?)</AbstractText>", Pattern.DOTALL);
-    private static final Pattern AUTHOR_PATTERN = Pattern.compile(
-            "<Author[^>]*>.*?<LastName>(.*?)</LastName>.*?<ForeName>(.*?)</ForeName>.*?</Author>", Pattern.DOTALL);
+    private static final Pattern ABSTRACT_PATTERN = Pattern.compile("<AbstractText[^>]*>(.*?)</AbstractText>",
+            Pattern.DOTALL);
+    private static final Pattern AUTHOR_BLOCK_PATTERN = Pattern.compile("<Author[^>]*>(.*?)</Author>", Pattern.DOTALL);
+    private static final Pattern LAST_NAME_PATTERN = Pattern.compile("<LastName>(.*?)</LastName>", Pattern.DOTALL);
+    private static final Pattern FORE_NAME_PATTERN = Pattern.compile("<ForeName>(.*?)</ForeName>", Pattern.DOTALL);
+    private static final Pattern AUTHOR_AFFILIATION_PATTERN = Pattern.compile("<Affiliation>(.*?)</Affiliation>",
+            Pattern.DOTALL);
+    private static final Pattern MESH_HEADING_PATTERN = Pattern.compile("<MeshHeading>(.*?)</MeshHeading>",
+            Pattern.DOTALL);
+    private static final Pattern DESCRIPTOR_NAME_PATTERN = Pattern
+            .compile("<DescriptorName[^>]*>(.*?)</DescriptorName>", Pattern.DOTALL);
+    private static final Pattern PUBLICATION_TYPE_PATTERN = Pattern
+            .compile("<PublicationType[^>]*>(.*?)</PublicationType>", Pattern.DOTALL);
+    private static final Pattern KEYWORD_PATTERN = Pattern.compile("<Keyword[^>]*>(.*?)</Keyword>", Pattern.DOTALL);
     private static final Pattern JOURNAL_PATTERN = Pattern.compile("<Title>(.*?)</Title>", Pattern.DOTALL);
     private static final Pattern DOI_PATTERN = Pattern.compile(
             "<ArticleId IdType=\"doi\">(.*?)</ArticleId>", Pattern.DOTALL);
@@ -89,6 +102,87 @@ public class PubMedXmlParser {
     }
 
     /**
+     * Parses citation links (references and cited-by) from E-link JSON.
+     *
+     * @param json JSON response
+     * @return map with "references" and "cited_by" lists of PMIDs
+     */
+    public static Map<String, List<String>> parseCitationsFromJson(String json) {
+        Map<String, List<String>> result = new HashMap<>();
+        result.put("cited_by", new ArrayList<>());
+        result.put("references", new ArrayList<>());
+
+        try {
+            JsonObject root = JsonParser.parseString(json).getAsJsonObject();
+            JsonArray linkSets = root.getAsJsonArray("linksets");
+            if (linkSets == null || linkSets.isEmpty())
+                return result;
+
+            JsonObject linkSet = linkSets.get(0).getAsJsonObject();
+            if (!linkSet.has("linksetdbs"))
+                return result;
+
+            JsonArray linkSetDbs = linkSet.getAsJsonArray("linksetdbs");
+            for (JsonElement element : linkSetDbs) {
+                JsonObject db = element.getAsJsonObject();
+                String linkName = db.get("linkname").getAsString();
+
+                if (!db.has("links"))
+                    continue;
+                JsonArray links = db.getAsJsonArray("links");
+
+                List<String> pmids = new ArrayList<>();
+                for (JsonElement link : links) {
+                    pmids.add(link.getAsString());
+                }
+
+                if ("pubmed_pubmed_citedin".equals(linkName)) {
+                    result.put("cited_by", pmids);
+                } else if ("pubmed_pubmed_refs".equals(linkName)) {
+                    result.put("references", pmids);
+                }
+            }
+        } catch (Exception e) {
+            // Return partial or empty result on error
+        }
+        return result;
+    }
+
+    /**
+     * Parses available database links from E-link JSON.
+     *
+     * @param json JSON response
+     * @return list of available database names
+     */
+    public static List<String> parseAvailableLinksFromJson(String json) {
+        List<String> databases = new ArrayList<>();
+        try {
+            JsonObject root = JsonParser.parseString(json).getAsJsonObject();
+            JsonArray linkSets = root.getAsJsonArray("linksets");
+            if (linkSets == null || linkSets.isEmpty())
+                return databases;
+
+            JsonObject linkSet = linkSets.get(0).getAsJsonObject();
+            if (!linkSet.has("linksetdbs"))
+                return databases;
+
+            JsonArray linkSetDbs = linkSet.getAsJsonArray("linksetdbs");
+            for (JsonElement element : linkSetDbs) {
+                JsonObject db = element.getAsJsonObject();
+                if (db.has("dbto")) {
+                    String dbTo = db.get("dbto").getAsString();
+                    if (!databases.contains(dbTo)) {
+                        databases.add(dbTo);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            // Return partial or empty list on error
+        }
+        return databases;
+    }
+
+    /**
      * Parses papers from an E-fetch XML response.
      *
      * @param xml the XML response from efetch
@@ -143,14 +237,45 @@ public class PubMedXmlParser {
             builder.publicationDate(year);
         }
 
-        Matcher authorMatcher = AUTHOR_PATTERN.matcher(xml);
+        Matcher authorMatcher = AUTHOR_BLOCK_PATTERN.matcher(xml);
         List<Author> authors = new ArrayList<>();
         while (authorMatcher.find()) {
-            String lastName = authorMatcher.group(1);
-            String foreName = authorMatcher.group(2);
-            authors.add(new Author(foreName + " " + lastName));
+            String authorXml = authorMatcher.group(1);
+            String lastName = extractFirst(LAST_NAME_PATTERN, authorXml);
+            String foreName = extractFirst(FORE_NAME_PATTERN, authorXml);
+            String affiliation = extractFirst(AUTHOR_AFFILIATION_PATTERN, authorXml);
+
+            if (lastName != null && foreName != null) {
+                authors.add(new Author(foreName + " " + lastName,
+                        affiliation != null ? cleanHtml(affiliation) : null, null));
+            }
         }
         builder.authors(authors);
+
+        List<String> meshTerms = new ArrayList<>();
+        Matcher meshMatcher = MESH_HEADING_PATTERN.matcher(xml);
+        while (meshMatcher.find()) {
+            String meshXml = meshMatcher.group(1);
+            String descriptor = extractFirst(DESCRIPTOR_NAME_PATTERN, meshXml);
+            if (descriptor != null) {
+                meshTerms.add(cleanHtml(descriptor));
+            }
+        }
+        builder.meshTerms(meshTerms);
+
+        List<String> publicationTypes = new ArrayList<>();
+        Matcher pubTypeMatcher = PUBLICATION_TYPE_PATTERN.matcher(xml);
+        while (pubTypeMatcher.find()) {
+            publicationTypes.add(cleanHtml(pubTypeMatcher.group(1)));
+        }
+        builder.publicationTypes(publicationTypes);
+
+        List<String> keywords = new ArrayList<>();
+        Matcher keywordMatcher = KEYWORD_PATTERN.matcher(xml);
+        while (keywordMatcher.find()) {
+            keywords.add(cleanHtml(keywordMatcher.group(1)));
+        }
+        builder.keywords(keywords);
 
         return builder.build();
     }

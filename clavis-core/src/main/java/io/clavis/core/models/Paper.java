@@ -29,6 +29,8 @@ public class Paper {
     private final List<String> keywords;
     private final int citationCount;
     private final String url;
+    private final List<String> meshTerms;
+    private final List<String> publicationTypes;
 
     private Paper(Builder builder) {
         this.id = builder.id;
@@ -42,6 +44,8 @@ public class Paper {
         this.keywords = List.copyOf(builder.keywords);
         this.citationCount = builder.citationCount;
         this.url = builder.url;
+        this.meshTerms = List.copyOf(builder.meshTerms);
+        this.publicationTypes = List.copyOf(builder.publicationTypes);
     }
 
     public String getId() {
@@ -88,6 +92,14 @@ public class Paper {
         return url;
     }
 
+    public List<String> getMeshTerms() {
+        return meshTerms;
+    }
+
+    public List<String> getPublicationTypes() {
+        return publicationTypes;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o)
@@ -120,6 +132,8 @@ public class Paper {
         private List<String> keywords = new ArrayList<>();
         private int citationCount;
         private String url;
+        private List<String> meshTerms = new ArrayList<>();
+        private List<String> publicationTypes = new ArrayList<>();
 
         public Builder id(String id) {
             this.id = id;
@@ -178,6 +192,16 @@ public class Paper {
 
         public Builder url(String url) {
             this.url = url;
+            return this;
+        }
+
+        public Builder meshTerms(List<String> meshTerms) {
+            this.meshTerms = meshTerms;
+            return this;
+        }
+
+        public Builder publicationTypes(List<String> publicationTypes) {
+            this.publicationTypes = publicationTypes;
             return this;
         }
 

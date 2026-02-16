@@ -58,7 +58,7 @@ Claude: "Here are 10 relevant papers with summaries..."
 
 ```bash
 # 1. Clone and build
-git clone https://github.com/your-org/CLAVIS.git && cd CLAVIS
+git clone https://github.com/ladybugsaga/CLAVIS.git && cd CLAVIS
 mvn clean install
 
 # 2. Configure (Optional: Add keys for higher rate limits)
@@ -117,13 +117,7 @@ cp .env.example .env
 
 ## 🛠️ Available Tools (PubMed)
 
-| Tool | Description |
-|------|-------------|
-| `search_pubmed` | Search 36M+ papers with PubMed syntax |
-| `get_pubmed_paper` | Fetch paper details by PMID |
-| `get_related_papers` | Find related papers via citation links |
-
-→ Full reference: **[API Reference](docs/api-reference.md)**
+Refer to **[API Reference](docs/api-reference.md)** for the complete list of tools and their usage.
 
 ---
 

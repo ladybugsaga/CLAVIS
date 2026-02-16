@@ -15,6 +15,10 @@ Search PubMed's 36M+ biomedical papers.
 |-----------|------|----------|---------|-------------|
 | `query` | string | ✅ | — | Search query (supports [PubMed query syntax](https://pubmed.ncbi.nlm.nih.gov/help/#search-tags)) |
 | `maxResults` | number | ❌ | 20 | Max results to return (1–100) |
+| `minYear` | string | ❌ | — | Filter by minimum publication year (e.g., "2020") |
+| `maxYear` | string | ❌ | — | Filter by maximum publication year (e.g., "2024") |
+| `articleType` | string | ❌ | — | Filter by article type (e.g., "Review", "Clinical Trial") |
+| `freeFullText` | boolean | ❌ | false | Filter for free full text only |
 
 **Example request:**
 ```json
@@ -41,7 +45,9 @@ Search PubMed's 36M+ biomedical papers.
       "publicationDate": "2024",
       "doi": "10.1038/s41568-024-0001-2",
       "url": "https://pubmed.ncbi.nlm.nih.gov/38123456",
-      "authors": ["Jane Smith", "John Doe"]
+      "authors": ["Jane Smith", "John Doe"],
+      "meshTerms": ["Neoplasms", "CRISPR-Cas Systems"],
+      "publicationTypes": ["Journal Article", "Review"]
     }
   ]
 }
@@ -103,6 +109,91 @@ Find papers related to a given paper.
   }
 }
 ```
+
+---
+
+### `track_citations`
+
+See who cites a paper and what it cites.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `pmid` | string | ✅ | PubMed ID |
+
+**Example:**
+```json
+{
+  "name": "track_citations",
+  "arguments": {
+    "pmid": "33116279"
+  }
+}
+```
+
+---
+
+### `batch_retrieve`
+
+Retrieve details for multiple papers at once.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `pmids` | string | ✅ | Comma-separated list of PMIDs |
+
+**Example:**
+```json
+{
+  "name": "batch_retrieve",
+  "arguments": {
+    "pmids": "33116279,38123456"
+  }
+}
+```
+
+---
+
+### `check_retractions`
+
+Check if a paper has been retracted or corrected.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `pmid` | string | ✅ | PubMed ID |
+
+**Example:**
+```json
+{
+  "name": "check_retractions",
+  "arguments": {
+    "pmid": "33116279"
+  }
+}
+```
+
+---
+
+### `get_related_database_links`
+
+Get links to associated NCBI databases (Genes, Proteins, Clinical Trials).
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `pmid` | string | ✅ | PubMed ID |
+
+---
+
+### `search_by_author`
+
+Find all papers by a specific researcher.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `author` | string | ✅ | Author name (e.g., "Watson JD") |
 
 ---
 
