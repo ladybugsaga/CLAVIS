@@ -329,16 +329,53 @@ Get detailed trial information by NCT number.
 
 ---
 
-## DrugBank Tools (Stub)
+## ChEMBL Tools
+ 
+ ### `chembl_search_compounds`
+ 
+ Search for compounds by name or synonym.
+ 
+ **Parameters:**
+ | Parameter | Type | Required | Default | Description |
+ |-----------|------|----------|---------|-------------|
+ | `query` | string | ✅ | — | Search query (e.g. "aspirin") |
+ | `limit` | integer | ❌ | 10 | Max results |
+ 
+ ---
+ 
+ ### `chembl_get_compound`
+ 
+ Get detailed information about a compound by ChEMBL ID.
+ 
+ **Parameters:**
+ | Parameter | Type | Required | Description |
+ |-----------|------|----------|-------------|
+ | `chemblId` | string | ✅ | ChEMBL ID (e.g. "CHEMBL25") |
+ 
+ ---
+ 
+ ### `chembl_get_drug_mechanism`
+ 
+ Get mechanism of action and target information for a drug.
+ 
+ **Parameters:**
+ | Parameter | Type | Required | Description |
+ |-----------|------|----------|-------------|
+ | `chemblId` | string | ✅ | ChEMBL ID |
+ 
+ ---
+ 
+ ### `chembl_get_bioactivity`
+ 
+ Get bioactivity data (IC50, EC50, Ki) for a compound or against a target.
+ 
+ **Parameters:**
+ | Parameter | Type | Required | Default | Description |
+ |-----------|------|----------|---------|-------------|
+ | `moleculeChemblId` | string | ❌ | — | Filter by molecule |
+ | `targetChemblId` | string | ❌ | — | Filter by target |
+ | `limit` | integer | ❌ | 20 | Max results |
 
-### `search_drugs`
-Search the DrugBank drug database.
-
-### `get_drug`
-Get comprehensive drug information.
-
-### `get_interactions`
-Get drug-drug interactions.
 
 ---
 

@@ -46,7 +46,7 @@ Claude: "Here are 10 relevant papers with summaries..."
 | `clavis-semanticscholar` | [Semantic Scholar](https://www.semanticscholar.org/) | 200M+ papers | [Optional](docs/signup.md) | ✅ Ready |
 | `clavis-arxiv` | [arXiv](https://arxiv.org/) | 2.4M+ preprints | None | 🔧 Stub |
 | `clavis-clinicaltrials` | [ClinicalTrials.gov](https://clinicaltrials.gov/) | 470K+ trials | None | 🔧 Stub |
-| `clavis-drugbank` | [DrugBank](https://go.drugbank.com/) | 16K+ drugs | [Required](docs/signup.md) | 🔧 Stub |
+| `clavis-chembl` | [ChEMBL](https://www.ebi.ac.uk/chembl/) | 2.4M+ bioactive compounds | None | ✅ Ready |
 | `clavis-pubchem` | [PubChem](https://pubchem.ncbi.nlm.nih.gov/) | 100M+ compounds | None | 🔧 Stub |
 | `clavis-uniprot` | [UniProt](https://www.uniprot.org/) | 250M+ proteins | None | ✅ Ready |
 | `clavis-kegg` | [KEGG](https://www.kegg.jp/) | 500K+ pathways | None | 🔧 Stub |

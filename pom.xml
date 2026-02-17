@@ -27,7 +27,7 @@
         <module>clavis-semanticscholar</module>
         <module>clavis-arxiv</module>
         <module>clavis-clinicaltrials</module>
-        <module>clavis-drugbank</module>
+        <module>clavis-chembl</module>
         <module>clavis-pubchem</module>
         <module>clavis-uniprot</module>
         <module>clavis-kegg</module>
