@@ -32,6 +32,7 @@
         <module>clavis-uniprot</module>
         <module>clavis-kegg</module>
         <module>clavis-reactome</module>
+        <module>clavis-dbsnp</module>
     </modules>
 
     <properties>
