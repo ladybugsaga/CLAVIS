@@ -19,13 +19,24 @@ mvn clean install -pl clavis-core,clavis-reactome
 {"mcpServers": {"clavis-reactome": {"command": "java", "args": ["-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener", "-jar", "/path/to/clavis-reactome/target/clavis-reactome-1.0.0-SNAPSHOT.jar"]}}}
 ```
 
+## Tools
+
+### `reactome_search`
+Search Reactome for pathways, reactions, and entities by keyword.
+
+### `reactome_get_pathway`
+Get detailed information about a pathway by stable ID (e.g. `R-HSA-1640170`).
+
+### `reactome_get_participants`
+Get molecular participants (proteins, compounds) in a pathway or reaction.
+
+### `reactome_get_pathways_for_entity`
+Find all pathways containing a gene (TP53), protein (P04637), or compound.
+
 ## API Details
 - **Base URL**: `https://reactome.org/ContentService`
-- **Rate Limit**: Generous
-- **Key**: None required
-- **Docs**: [Reactome API](https://reactome.org/ContentService/)
-
-## Status: 🔧 Stub — Implementation coming soon
+- **Rate Limit**: 5 requests per second
+- **Status**: ✅ Ready
 
 ---
 

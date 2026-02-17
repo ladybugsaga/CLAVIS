@@ -17,8 +17,15 @@ public class ReactomeServer extends MCPServer {
 
     @Override
     protected void registerTools() {
-        // TODO: Register reactome tools
-        logger.info("CLAVIS Reactome MCP Server initialized (stub)");
+        ReactomeClient client = new ReactomeClient();
+        ReactomeTools tools = new ReactomeTools(client);
+
+        this.tools.add(tools.createSearchTool());
+        this.tools.add(tools.createGetPathwayTool());
+        this.tools.add(tools.createGetParticipantsTool());
+        this.tools.add(tools.createGetPathwaysForEntityTool());
+
+        logger.info("CLAVIS Reactome MCP Server initialized with 4 tools");
     }
 
     public static void main(String[] args) {
