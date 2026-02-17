@@ -12,7 +12,7 @@
 
     <artifactId>clavis-clinicaltrials</artifactId>
     <name>CLAVIS ClinicalTrials MCP Server</name>
-    <description>MCP server for ClinicalTrials.gov</description>
+    <description>MCP server for ClinicalTrials.gov — 470K+ clinical trials</description>
 
     <dependencies>
         <dependency>
@@ -35,14 +35,24 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>io.clavis.clinicaltrials.ClinicalTrialsServer</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.2</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>io.clavis.clinicaltrials.ClinicalTrialsServer</mainClass>
+                                </transformer>
+                            </transformers>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

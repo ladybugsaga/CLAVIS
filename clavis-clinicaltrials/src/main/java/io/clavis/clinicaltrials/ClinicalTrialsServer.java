@@ -1,15 +1,12 @@
 package io.clavis.clinicaltrials;
 
 import io.clavis.core.mcp.MCPServer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-/**
- * CLAVIS ClinicalTrials MCP Server implementation.
- *
- * @author CLAVIS Team
- * @version 1.0.0
- * @since 2025-01-01
- */
 public class ClinicalTrialsServer extends MCPServer {
+
+    private static final Logger logger = LoggerFactory.getLogger(ClinicalTrialsServer.class);
 
     public ClinicalTrialsServer() {
         super("clavis-clinicaltrials", "1.0.0");
@@ -17,8 +14,9 @@ public class ClinicalTrialsServer extends MCPServer {
 
     @Override
     protected void registerTools() {
-        // TODO: Register clinicaltrials tools
-        logger.info("CLAVIS ClinicalTrials MCP Server initialized (stub)");
+        ClinicalTrialsTools toolDefinitions = new ClinicalTrialsTools();
+        tools.addAll(toolDefinitions.getAllTools());
+        logger.info("CLAVIS ClinicalTrials MCP Server initialized with {} tools", tools.size());
     }
 
     public static void main(String[] args) {

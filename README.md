@@ -45,7 +45,7 @@ Claude: "Here are 10 relevant papers with summaries..."
 | `clavis-europepmc` | [Europe PMC](https://europepmc.org/) | 40M+ papers | None | 🔧 Stub |
 | `clavis-semanticscholar` | [Semantic Scholar](https://www.semanticscholar.org/) | 200M+ papers | [Optional](docs/signup.md) | ✅ Ready |
 | `clavis-arxiv` | [arXiv](https://arxiv.org/) | 2.4M+ preprints | None | 🔧 Stub |
-| `clavis-clinicaltrials` | [ClinicalTrials.gov](https://clinicaltrials.gov/) | 470K+ trials | None | 🔧 Stub |
+| `clavis-clinicaltrials` | [ClinicalTrials.gov](https://clinicaltrials.gov/) | 470K+ trials | None | ✅ Ready |
 | `clavis-chembl` | [ChEMBL](https://www.ebi.ac.uk/chembl/) | 2.4M+ bioactive compounds | None | ✅ Ready |
 | `clavis-pubchem` | [PubChem](https://pubchem.ncbi.nlm.nih.gov/) | 100M+ compounds | None | 🔧 Stub |
 | `clavis-uniprot` | [UniProt](https://www.uniprot.org/) | 250M+ proteins | None | ✅ Ready |
