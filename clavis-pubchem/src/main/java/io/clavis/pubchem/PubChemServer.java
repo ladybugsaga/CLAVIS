@@ -1,15 +1,12 @@
 package io.clavis.pubchem;
 
 import io.clavis.core.mcp.MCPServer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-/**
- * CLAVIS PubChem MCP Server implementation.
- *
- * @author CLAVIS Team
- * @version 1.0.0
- * @since 2025-01-01
- */
 public class PubChemServer extends MCPServer {
+
+    private static final Logger logger = LoggerFactory.getLogger(PubChemServer.class);
 
     public PubChemServer() {
         super("clavis-pubchem", "1.0.0");
@@ -17,8 +14,9 @@ public class PubChemServer extends MCPServer {
 
     @Override
     protected void registerTools() {
-        // TODO: Register pubchem tools
-        logger.info("CLAVIS PubChem MCP Server initialized (stub)");
+        PubChemTools toolDefinitions = new PubChemTools();
+        tools.addAll(toolDefinitions.getAllTools());
+        logger.info("CLAVIS PubChem MCP Server initialized with {} tools", tools.size());
     }
 
     public static void main(String[] args) {
