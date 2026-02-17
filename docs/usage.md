@@ -250,7 +250,7 @@ The AI client will discover tools from all connected servers and can use them to
 | **Semantic Scholar** | `search_papers`, `get_paper`, `get_citations` | 🔧 Stub |
 | **arXiv** | `search_arxiv`, `get_arxiv_paper` | 🔧 Stub |
 | **ClinicalTrials** | `search_trials`, `get_trial` | 🔧 Stub |
-| **DrugBank** | `search_drugs`, `get_drug`, `get_interactions` | 🔧 Stub |
+| **ChEMBL** | `chembl_search_compounds`, `chembl_get_compound`, `chembl_get_drug_mechanism`, `chembl_get_bioactivity` | ✅ Ready |
 | **PubChem** | `search_compounds`, `get_compound` | 🔧 Stub |
 | **UniProt** | `search_proteins`, `get_protein` | 🔧 Stub |
 | **KEGG** | `search_pathways`, `get_pathway` | 🔧 Stub |

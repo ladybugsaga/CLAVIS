@@ -58,11 +58,12 @@ services:
     command: ["/app/clavis-europepmc.jar"]
     stdin_open: true
 
-  drugbank:
-    build: .
-    command: ["/app/clavis-drugbank.jar"]
-    environment:
-      - DRUGBANK_API_KEY=${DRUGBANK_API_KEY}
+  chembl:
+    image: openjdk:17-slim
+    command: ["/app/clavis-chembl.jar"]
+    volumes:
+      - ./clavis-chembl/target/clavis-chembl-1.0.0-SNAPSHOT.jar:/app/clavis-chembl.jar
+
     stdin_open: true
 ```
 

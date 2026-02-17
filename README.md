@@ -140,7 +140,7 @@ Refer to **[API Reference](docs/api-reference.md)** for the complete list of too
 | **[Semantic Scholar](docs/semanticscholar-guide.md)** | AI-powered features |
 | **[arXiv](docs/arxiv-guide.md)** | Preprint search |
 | **[ClinicalTrials](docs/clinicaltrials-guide.md)** | Trial registration data |
-| **[DrugBank](docs/drugbank-guide.md)** | Drug data & interactions |
+| **[ChEMBL](docs/chembl-guide.md)** | Bioactive compounds & targets |
 | **[PubChem](docs/pubchem-guide.md)** | Chemical compounds |
 | **[UniProt](docs/uniprot-guide.md)** | Protein sequences |
 | **[KEGG](docs/kegg-guide.md)** | Biological pathways |

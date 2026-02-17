@@ -13,6 +13,7 @@ These services work immediately without any configuration:
 | **Europe PMC** | 40M+ Open Access Papers | Generous (High) |
 | **arXiv** | 2.4M+ Preprints | Moderate (Be polite) |
 | **ClinicalTrials.gov** | 470K+ Clinical Trials | Generous |
+| **ChEMBL** | 2.4M+ Bioactive Compounds | 5 requests/sec |
 | **PubChem** | 118M+ Compounds | 5 requests/sec |
 | **UniProt** | 250M+ Proteins | Generous |
 | **KEGG** | Biological Pathways | Moderate |
@@ -52,25 +53,6 @@ Adding keys for these services is free and significantly improves performance (s
 *   **Configuration**:
     ```bash
     SEMANTIC_SCHOLAR_API_KEY=your_key_here
-    ```
-
----
-
-## 🔴 Required Keys (Restricted Access)
-
-These services **will not work** (or have very limited functionality) without an API key.
-
-### 1. DrugBank
-*Requires an academic or commercial license.*
-
-*   **Benefit**: Access to high-quality curated drug data.
-*   **Cost**: Free for Academics; Paid for Commercial.
-*   **How to get it**:
-    1.  **Academic**: Sign up at [DrugBank Academic](https://go.drugbank.com/public_users/sign_up).
-    2.  **Commercial**: Contact [DrugBank Sales](https://www.drugbank.com/).
-*   **Configuration**:
-    ```bash
-    DRUGBANK_API_KEY=your_key_here
     ```
 
 ---

@@ -9,10 +9,14 @@ import java.util.Objects;
 /**
  * Thread-safe singleton for centralized configuration management.
  *
- * <p>Loads configuration from environment variables and {@code .env} file.
- * Uses Bill Pugh Singleton pattern for lazy, thread-safe initialization.</p>
+ * <p>
+ * Loads configuration from environment variables and {@code .env} file.
+ * Uses Bill Pugh Singleton pattern for lazy, thread-safe initialization.
+ * </p>
  *
- * <p>Example usage:
+ * <p>
+ * Example usage:
+ * 
  * <pre>{@code
  * ConfigManager config = ConfigManager.getInstance();
  * String apiKey = config.get("NCBI_API_KEY");
@@ -82,7 +86,8 @@ public final class ConfigManager {
      * Gets a configuration value as an integer.
      *
      * @param key          the configuration key
-     * @param defaultValue the default value if key is not found or not a valid integer
+     * @param defaultValue the default value if key is not found or not a valid
+     *                     integer
      * @return the integer value, or defaultValue on error
      */
     public int getInt(String key, int defaultValue) {
@@ -168,16 +173,6 @@ public final class ConfigManager {
      */
     public String getSemanticScholarApiKey() {
         return get("SEMANTIC_SCHOLAR_API_KEY");
-    }
-
-    /**
-     * Gets the DrugBank API key.
-     *
-     * @return the API key
-     * @throws ConfigurationException if not set
-     */
-    public String getDrugBankApiKey() {
-        return getRequired("DRUGBANK_API_KEY");
     }
 
     /**

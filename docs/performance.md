@@ -54,7 +54,7 @@ CLAVIS uses a token bucket rate limiter that:
 |--------|-------------|--------------|
 | PubMed | 3 req/s | 10 req/s |
 | Semantic Scholar | 1 req/s | 10 req/s |
-| DrugBank | 5 req/s | 5 req/s |
+| ChEMBL | 5 req/s | 5 req/s |
 | Europe PMC | 10 req/s | N/A |
 | Others | 10 req/s | N/A |
 

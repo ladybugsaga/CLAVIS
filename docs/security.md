@@ -31,7 +31,7 @@ Instead of `.env` files, use system environment variables or your MCP client's `
 ### Rotate keys regularly
 - NCBI API keys: No expiration, but regenerate annually
 - Semantic Scholar keys: Follow their rotation policy
-- DrugBank keys: Tied to institutional accounts
+
 
 ---
 

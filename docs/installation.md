@@ -117,7 +117,7 @@ nano .env   # or use your preferred editor
 | **Semantic Scholar** | `SEMANTIC_SCHOLAR_API_KEY` | [Semantic Scholar API](https://www.semanticscholar.org/product/api#api-key) |
 | **arXiv** | None required | Free, no key needed |
 | **ClinicalTrials.gov** | None required | Free, no key needed |
-| **DrugBank** | `DRUGBANK_API_KEY` | [DrugBank Academic](https://go.drugbank.com/public_users/sign_up) |
+
 | **PubChem** | None required | Free, no key needed |
 | **UniProt** | None required | Free, no key needed |
 | **KEGG** | None required | Free for academic use |

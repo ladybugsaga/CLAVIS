@@ -29,4 +29,4 @@ mvn clean install -pl clavis-core,clavis-pubchem
 
 ---
 
-*See also: [DrugBank Guide](drugbank-guide.md) | [API Reference](api-reference.md)*
+*See also: [ChEMBL Guide](chembl-guide.md) | [API Reference](api-reference.md)*

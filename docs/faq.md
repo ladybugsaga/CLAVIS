@@ -16,7 +16,7 @@ The [Model Context Protocol](https://modelcontextprotocol.io/) is an open standa
 - **ChatGPT** — Via MCP bridge
 
 ### Is CLAVIS free?
-Yes. CLAVIS itself is open source under the MIT License. Most biomedical APIs it connects to are also free (PubMed, Europe PMC, arXiv, PubChem, UniProt, etc.). Some APIs like DrugBank require academic registration.
+Yes. CLAVIS itself is open source under the MIT License. Most biomedical APIs it connects to are also free (PubMed, Europe PMC, arXiv, PubChem, UniProt, ChEMBL, etc.).
 
 ### Which databases are supported?
 | Database | Type | Status |
@@ -26,7 +26,7 @@ Yes. CLAVIS itself is open source under the MIT License. Most biomedical APIs it
 | Semantic Scholar | Literature (AI-powered) | 🔧 Stub |
 | arXiv | Preprints | 🔧 Stub |
 | ClinicalTrials.gov | Clinical trials | 🔧 Stub |
-| DrugBank | Drug data | 🔧 Stub |
+| ChEMBL | Bioactive compounds | ✅ Ready |
 | PubChem | Chemical compounds | 🔧 Stub |
 | UniProt | Proteins | 🔧 Stub |
 | KEGG | Pathways | 🔧 Stub |

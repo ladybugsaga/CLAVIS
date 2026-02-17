@@ -11,7 +11,7 @@ CLAVIS is a **monorepo** containing a shared core library and 10 independent MCP
 └──────────┬──────────────┬──────────────┬───────────────────────┘
            │ MCP/stdio    │ MCP/stdio    │ MCP/stdio
 ┌──────────▼───┐  ┌───────▼──────┐  ┌───▼──────────────┐
-│ clavis-pubmed│  │clavis-arxiv  │  │clavis-drugbank   │
+│ clavis-pubmed│  │clavis-arxiv  │  │clavis-chembl     │
 │   Server     │  │   Server     │  │    Server        │
 └──────────┬───┘  └───────┬──────┘  └───┬──────────────┘
            │              │              │
@@ -25,7 +25,7 @@ CLAVIS is a **monorepo** containing a shared core library and 10 independent MCP
 └────────────────────────────────────────────────────────┘
            │              │              │
 ┌──────────▼───┐  ┌───────▼──────┐  ┌───▼──────────────┐
-│  PubMed API  │  │  arXiv API   │  │  DrugBank API    │
+│  PubMed API  │  │  arXiv API   │  │  ChEMBL API      │
 │ (E-utilities)│  │  (OAI-PMH)   │  │  (REST)          │
 └──────────────┘  └──────────────┘  └──────────────────┘
 ```
@@ -58,7 +58,7 @@ CLAVIS/
 ├── clavis-semanticscholar/      # Semantic Scholar server (stub)
 ├── clavis-arxiv/                # arXiv server (stub)
 ├── clavis-clinicaltrials/       # ClinicalTrials.gov server (stub)
-├── clavis-drugbank/             # DrugBank server (stub)
+├── clavis-chembl/               # ChEMBL server
 ├── clavis-pubchem/              # PubChem server (stub)
 ├── clavis-uniprot/              # UniProt server (stub)
 ├── clavis-kegg/                 # KEGG server (stub)

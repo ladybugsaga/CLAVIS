@@ -41,14 +41,7 @@ All CLAVIS configuration is done via environment variables or a `.env` file in t
 
 ---
 
-## DrugBank Configuration
 
-| Variable | Description | Default | Required |
-|----------|-------------|---------|----------|
-| `DRUGBANK_API_KEY` | DrugBank API access key | — | **Yes** |
-| `DRUGBANK_RATE_LIMIT` | Requests per second | `5` | No |
-
-**Getting your key:** [DrugBank Academic](https://go.drugbank.com/public_users/sign_up)
 
 ---
 
@@ -92,7 +85,7 @@ NCBI_EMAIL=researcher@university.edu
 SEMANTIC_SCHOLAR_API_KEY=your_s2_key
 
 # === Optional ===
-DRUGBANK_API_KEY=your_drugbank_key
+
 
 # === General ===
 CLAVIS_LOG_LEVEL=INFO
