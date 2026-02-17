@@ -39,53 +39,38 @@ Claude: "Here are 10 relevant papers with summaries..."
 
 ## 🗄️ Supported Databases
 
-| Server | Database | Papers/Records | API Key | Status |
-|--------|----------|---------------|---------|--------|
-| `clavis-pubmed` | [PubMed](https://pubmed.ncbi.nlm.nih.gov/) | 36M+ papers | [Optional](docs/signup.md) | ✅ Ready |
-| `clavis-europepmc` | [Europe PMC](https://europepmc.org/) | 40M+ papers | None | 🔧 Stub |
-| `clavis-semanticscholar` | [Semantic Scholar](https://www.semanticscholar.org/) | 200M+ papers | [Optional](docs/signup.md) | ✅ Ready |
-| `clavis-arxiv` | [arXiv](https://arxiv.org/) | 2.4M+ preprints | None | 🔧 Stub |
-| `clavis-clinicaltrials` | [ClinicalTrials.gov](https://clinicaltrials.gov/) | 470K+ trials | None | ✅ Ready |
+| Server | Database | Description / Records | API Key | Status |
+|--------|----------|-----------------------|---------|--------|
+| `clavis-pubmed` | [PubMed](https://pubmed.ncbi.nlm.nih.gov/) | 36M+ papers, life science journals | [Optional](docs/signup.md) | ✅ Ready |
+| `clavis-semanticscholar` | [Semantic Scholar](https://www.semanticscholar.org/) | 200M+ papers, AI-powered | [Optional](docs/signup.md) | ✅ Ready |
+| `clavis-clinicaltrials` | [ClinicalTrials.gov](https://clinicaltrials.gov/) | 470K+ trials, world's largest DB | None | ✅ Ready |
 | `clavis-chembl` | [ChEMBL](https://www.ebi.ac.uk/chembl/) | 2.4M+ bioactive compounds | None | ✅ Ready |
-| `clavis-pubchem` | [PubChem](https://pubchem.ncbi.nlm.nih.gov/) | 100M+ compounds | None | ✅ Ready |
-| `clavis-uniprot` | [UniProt](https://www.uniprot.org/) | 250M+ proteins | None | ✅ Ready |
-| `clavis-kegg` | [KEGG](https://www.kegg.jp/) | 500K+ pathways | None | ✅ Ready |
-| `clavis-reactome` | [Reactome](https://reactome.org/) | 15K+ pathways | None | 🔧 Stub |
-
-### 🗺️ Roadmap — Tier 1 (Critical)
-
-| Server | Database | Records | API Key | Description |
-|--------|----------|---------|---------|-------------|
-| `clavis-openfda` | [OpenFDA](https://open.fda.gov/apis) | 10M+ adverse events | None | Drug side effects, recalls, FDA warnings |
-| `clavis-dailymed` | [DailyMed](https://dailymed.nlm.nih.gov/dailymed/services) | 140K+ drug labels | None | Official FDA drug labels, dosing, interactions |
-| `clavis-rxnorm` | [RxNorm](https://rxnav.nlm.nih.gov) | 100K+ drug names | None | Drug name standardization (Advil = Ibuprofen) |
-| `clavis-opentargets` | [Open Targets](https://platform.opentargets.org) | 60K+ targets | None | Disease → Gene → Drug links with evidence scores |
-| `clavis-clinvar` | [ClinVar](https://www.ncbi.nlm.nih.gov/clinvar) | 2M+ variants | None | Genetic mutations → disease associations |
-
-### 🗺️ Roadmap — Tier 2 (High Value)
-
-| Server | Database | Records | API Key | Description |
-|--------|----------|---------|---------|-------------|
-| `clavis-string` | [STRING](https://string-db.org) | 67M+ interactions | None | Protein-protein interaction networks |
-| `clavis-alphafold` | [AlphaFold](https://alphafold.ebi.ac.uk) | 200M+ structures | None | AI-predicted 3D protein structures |
-| `clavis-pdb` | [PDB](https://www.rcsb.org) | 220K+ structures | None | Experimental 3D protein structures |
-| `clavis-gwas` | [GWAS Catalog](https://www.ebi.ac.uk/gwas) | 500K+ associations | None | Genetic variants → disease risk |
-| `clavis-hpa` | [Human Protein Atlas](https://www.proteinatlas.org) | 20K+ proteins | None | Tissue-level protein expression |
-| `clavis-ensembl` | [Ensembl](https://rest.ensembl.org) | Full genome | None | Complete genome data, 100+ species |
-| `clavis-biorxiv` | [bioRxiv/medRxiv](https://api.biorxiv.org) | 240K+ preprints | None | Pre-peer-review research |
-
-### 🗺️ Roadmap — Tier 3 (Specialized)
-
-| Server | Database | Records | API Key | Description |
-|--------|----------|---------|---------|-------------|
-| `clavis-chebi` | [ChEBI](https://www.ebi.ac.uk/chebi) | 60K+ chemicals | None | Chemical biology — metabolites |
-| `clavis-intact` | [IntAct](https://www.ebi.ac.uk/intact) | 1M+ interactions | None | Molecular interaction data |
-| `clavis-pharmgkb` | [PharmGKB](https://api.pharmgkb.org) | 50K+ relationships | None | Pharmacogenomics — drug response by genetics |
-| `clavis-medlineplus` | [MedlinePlus](https://medlineplus.gov) | 40K+ entries | None | Patient-friendly medical info |
-| `clavis-nci` | [NCI Thesaurus](https://evsrestapi.nci.nih.gov) | 170K+ concepts | None | Cancer terminology & classification |
-| `clavis-hmdb` | [HMDB](https://hmdb.ca) | 220K+ metabolites | None | Human metabolome database |
-| `clavis-dbsnp` | [dbSNP](https://www.ncbi.nlm.nih.gov/snp) | 650M+ variants | None | Genetic variant frequencies |
-| `clavis-biogrid` | [BioGRID](https://webservice.thebiogrid.org) | 2M+ interactions | Free key | Curated biological interactions |
+| `clavis-pubchem` | [PubChem](https://pubchem.ncbi.nlm.nih.gov/) | 100M+ compounds, chemical properties | None | ✅ Ready |
+| `clavis-uniprot` | [UniProt](https://www.uniprot.org/) | 250M+ proteins, sequences/function | None | ✅ Ready |
+| `clavis-kegg` | [KEGG](https://www.kegg.jp/) | 500K+ pathways, genes, genomes | None | ✅ Ready |
+| `clavis-europepmc` | [Europe PMC](https://europepmc.org/) | 40M+ papers, patents, preprints | None | 🔧 Stub |
+| `clavis-arxiv` | [arXiv](https://arxiv.org/) | 2.4M+ preprints, AI/Physics | None | 🔧 Stub |
+| `clavis-reactome` | [Reactome](https://reactome.org/) | 15K+ pathways, diagram data | None | 🔧 Stub |
+| `clavis-openfda` | [OpenFDA](https://open.fda.gov/apis) | 10M+ adverse event reports, recalls | None | 📜 Planned |
+| `clavis-dailymed` | [DailyMed](https://dailymed.nlm.nih.gov/dailymed/services) | 140K+ official FDA drug labels | None | 📜 Planned |
+| `clavis-rxnorm` | [RxNorm](https://rxnav.nlm.nih.gov) | 100K+ standardized drug names | None | 📜 Planned |
+| `clavis-opentargets` | [Open Targets](https://platform.opentargets.org) | 60K+ gene/disease targets | None | 📜 Planned |
+| `clavis-clinvar` | [ClinVar](https://www.ncbi.nlm.nih.gov/clinvar) | 2M+ genetic variants, disease links | None | 📜 Planned |
+| `clavis-string` | [STRING](https://string-db.org) | 67M+ protein interaction networks | None | 📜 Planned |
+| `clavis-alphafold` | [AlphaFold](https://alphafold.ebi.ac.uk) | 200M+ AI-predicted 3D structures | None | 📜 Planned |
+| `clavis-pdb` | [PDB](https://www.rcsb.org) | 220K+ experimental 3D structures | None | 📜 Planned |
+| `clavis-gwas` | [GWAS Catalog](https://www.ebi.ac.uk/gwas) | 500K+ gen-variant associations | None | 📜 Planned |
+| `clavis-hpa` | [Human Protein Atlas](https://www.proteinatlas.org) | 20K+ proteins, tissue expression | None | 📜 Planned |
+| `clavis-ensembl` | [Ensembl](https://rest.ensembl.org) | Full human/multi-species genomes | None | 📜 Planned |
+| `clavis-biorxiv` | [bioRxiv/medRxiv](https://api.biorxiv.org) | 240K+ research preprints | None | 📜 Planned |
+| `clavis-chebi` | [ChEBI](https://www.ebi.ac.uk/chebi) | 60K+ chemical biology metabolites | None | 📜 Planned |
+| `clavis-intact` | [IntAct](https://www.ebi.ac.uk/intact) | 1M+ molecular interactions | None | 📜 Planned |
+| `clavis-pharmgkb` | [PharmGKB](https://api.pharmgkb.org) | 50K+ pharmacogenomic relationships | None | 📜 Planned |
+| `clavis-medlineplus` | [MedlinePlus](https://medlineplus.gov) | 40K+ patient-friendly help topics | None | 📜 Planned |
+| `clavis-nci` | [NCI Thesaurus](https://evsrestapi.nci.nih.gov) | 170K+ authoritative cancer terms | None | 📜 Planned |
+| `clavis-hmdb` | [HMDB](https://hmdb.ca) | 220K+ human body metabolites | None | 📜 Planned |
+| `clavis-dbsnp` | [dbSNP](https://www.ncbi.nlm.nih.gov/snp) | 650M+ genetic variants/freqs | None | 📜 Planned |
+| `clavis-biogrid` | [BioGRID](https://webservice.thebiogrid.org) | 2M+ curated bio-interactions | Free Key | 📜 Planned |
 
 ---
 
