@@ -18,14 +18,24 @@ mvn clean install -pl clavis-core,clavis-arxiv
 {"mcpServers": {"clavis-arxiv": {"command": "java", "args": ["-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener", "-jar", "/path/to/clavis-arxiv/target/clavis-arxiv-1.0.0-SNAPSHOT.jar"]}}}
 ```
 
+## Tools
+
+### `arxiv_search`
+Search arXiv preprints by keyword. Supports field prefixes: `ti:` (title), `au:` (author), `cat:` (category).
+
+### `arxiv_get_paper`
+Get full details for a paper by its arXiv ID (e.g. `2301.12345`, `hep-ex/0307015`).
+
+### `arxiv_search_author`
+Find papers by a specific author name.
+
+### `arxiv_search_category`
+Browse papers by arXiv category (e.g. `cs.AI`, `cs.LG`, `quant-ph`, `q-bio.BM`), with optional keyword filter.
+
 ## API Details
 - **Base URL**: `http://export.arxiv.org/api/query`
-- **Protocol**: Atom/XML (OAI-PMH)
-- **Rate Limit**: Moderate (be polite)
-- **Key**: None required
-- **Docs**: [arXiv API](https://info.arxiv.org/help/api/)
-
-## Status: 🔧 Stub — Implementation coming soon
+- **Rate Limit**: 1 request per second
+- **Status**: ✅ Ready
 
 ---
 

@@ -17,8 +17,15 @@ public class ArxivServer extends MCPServer {
 
     @Override
     protected void registerTools() {
-        // TODO: Register arxiv tools
-        logger.info("CLAVIS arXiv MCP Server initialized (stub)");
+        ArxivClient client = new ArxivClient();
+        ArxivTools tools = new ArxivTools(client);
+
+        this.tools.add(tools.createSearchTool());
+        this.tools.add(tools.createGetPaperTool());
+        this.tools.add(tools.createSearchAuthorTool());
+        this.tools.add(tools.createSearchCategoryTool());
+
+        logger.info("CLAVIS arXiv MCP Server initialized with 4 tools");
     }
 
     public static void main(String[] args) {
