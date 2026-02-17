@@ -72,13 +72,17 @@ cp .env.example .env
 ```json
 {
   "mcpServers": {
-    "pubmed": {
+    "clavis-pubmed": {
       "command": "java",
       "args": ["-jar", "/path/to/CLAVIS/clavis-pubmed/target/clavis-pubmed-1.0.0-SNAPSHOT.jar"],
       "env": {
         "NCBI_API_KEY": "your_key",
         "NCBI_EMAIL": "your_email"
       }
+    },
+    "clavis-chembl": {
+      "command": "java",
+      "args": ["-jar", "/path/to/CLAVIS/clavis-chembl/target/clavis-chembl-1.0.0-SNAPSHOT.jar"]
     }
   }
 }

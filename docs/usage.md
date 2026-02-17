@@ -36,7 +36,7 @@ Edit (or create) the config file:
 ```json
 {
   "mcpServers": {
-    "pubmed": {
+    "clavis-pubmed": {
       "command": "java",
       "args": [
         "-jar",
@@ -47,14 +47,14 @@ Edit (or create) the config file:
         "NCBI_EMAIL": "your_email@example.com"
       }
     },
-    "europepmc": {
+    "clavis-europepmc": {
       "command": "java",
       "args": [
         "-jar",
         "/absolute/path/to/CLAVIS/clavis-europepmc/target/clavis-europepmc-1.0.0-SNAPSHOT.jar"
       ]
     },
-    "semanticscholar": {
+    "clavis-semanticscholar": {
       "command": "java",
       "args": [
         "-jar",
@@ -133,6 +133,7 @@ npm install -g @anthropic/mcp-proxy
 
 # Start the bridge
 mcp-proxy --server "java -jar /path/to/clavis-pubmed-1.0.0-SNAPSHOT.jar" \
+          --name "clavis-pubmed" \
           --port 8080
 ```
 
@@ -147,7 +148,7 @@ Add to your `.cursor/mcp.json` in your project root:
 ```json
 {
   "mcpServers": {
-    "pubmed": {
+    "clavis-pubmed": {
       "command": "java",
       "args": [
         "-jar",
@@ -173,7 +174,7 @@ Add to `~/.windsurf/mcp_config.json`:
 ```json
 {
   "mcpServers": {
-    "pubmed": {
+    "clavis-pubmed": {
       "command": "java",
       "args": ["-jar", "/path/to/clavis-pubmed-1.0.0-SNAPSHOT.jar"],
       "env": {
@@ -219,17 +220,16 @@ You can run multiple CLAVIS servers simultaneously. Each server is a separate pr
 ```json
 {
   "mcpServers": {
-    "pubmed": {
+    "clavis-pubmed": {
       "command": "java",
       "args": ["-jar", "/path/to/clavis-pubmed-1.0.0-SNAPSHOT.jar"],
       "env": {"NCBI_API_KEY": "key", "NCBI_EMAIL": "email"}
     },
-    "drugbank": {
+    "clavis-chembl": {
       "command": "java",
-      "args": ["-jar", "/path/to/clavis-drugbank-1.0.0-SNAPSHOT.jar"],
-      "env": {"DRUGBANK_API_KEY": "key"}
+      "args": ["-jar", "/path/to/clavis-chembl-1.0.0-SNAPSHOT.jar"]
     },
-    "clinicaltrials": {
+    "clavis-clinicaltrials": {
       "command": "java",
       "args": ["-jar", "/path/to/clavis-clinicaltrials-1.0.0-SNAPSHOT.jar"]
     }
