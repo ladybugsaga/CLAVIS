@@ -16,7 +16,7 @@ mvn clean install -pl clavis-core,clavis-reactome
 ```
 
 ```json
-{"mcpServers": {"reactome": {"command": "java", "args": ["-jar", "/path/to/clavis-reactome/target/clavis-reactome-1.0.0-SNAPSHOT.jar"]}}}
+{"mcpServers": {"clavis-reactome": {"command": "java", "args": ["-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener", "-jar", "/path/to/clavis-reactome/target/clavis-reactome-1.0.0-SNAPSHOT.jar"]}}}
 ```
 
 ## API Details

@@ -40,8 +40,11 @@ All CLAVIS configuration is done via environment variables or a `.env` file in t
 **Getting your key:** [Semantic Scholar API](https://www.semanticscholar.org/product/api#api-key)
 
 ---
+---
 
+## ChEMBL & PubChem Configuration
 
+These servers use default rate limits (5 req/s) and require no API keys.
 
 ---
 
@@ -51,13 +54,14 @@ These servers use free, open APIs:
 
 | Server | Notes |
 |--------|-------|
-| **Europe PMC** | Fully open, generous rate limits |
-| **arXiv** | OAI-PMH protocol, no key needed |
-| **ClinicalTrials.gov** | Free public API |
-| **PubChem** | NCBI service, no key needed |
-| **UniProt** | RESTful API, no key needed |
-| **KEGG** | Free for academic use |
-| **Reactome** | Free content API |
+| **ChEMBL** | Manually curated bioactivity data |
+| **PubChem** | Chemical property data |
+| **UniProt** | Protein sequence and function |
+| **ClinicalTrials.gov** | Clinical study registrations |
+| **KEGG** | Biological pathways and genomes |
+| **Europe PMC** | (Stub) Literature, patents, preprints |
+| **arXiv** | (Stub) Preprint search |
+| **Reactome** | (Stub) Pathway diagram data |
 
 ---
 

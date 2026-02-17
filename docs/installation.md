@@ -88,7 +88,7 @@ mvn -version
 ## Step 3: Clone the Repository
 
 ```bash
-git clone https://github.com/your-org/CLAVIS.git
+git clone https://github.com/ladybugsaga/CLAVIS.git
 cd CLAVIS
 ```
 

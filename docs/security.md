@@ -17,7 +17,7 @@ Instead of `.env` files, use system environment variables or your MCP client's `
 ```json
 {
   "mcpServers": {
-    "pubmed": {
+    "clavis-pubmed": {
       "command": "java",
       "args": ["-jar", "..."],
       "env": {

@@ -109,15 +109,12 @@ cp .env.example .env
   "mcpServers": {
     "clavis-pubmed": {
       "command": "java",
-      "args": ["-jar", "/path/to/CLAVIS/clavis-pubmed/target/clavis-pubmed-1.0.0-SNAPSHOT.jar"],
-      "env": {
-        "NCBI_API_KEY": "your_key",
-        "NCBI_EMAIL": "your_email"
-      }
+      "args": ["-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener", "-jar", "/path/to/clavis-pubmed-1.0.0-SNAPSHOT.jar"],
+      "env": {"NCBI_API_KEY": "your_key", "NCBI_EMAIL": "your_email"}
     },
     "clavis-chembl": {
       "command": "java",
-      "args": ["-jar", "/path/to/CLAVIS/clavis-chembl/target/clavis-chembl-1.0.0-SNAPSHOT.jar"]
+      "args": ["-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener", "-jar", "/path/to/clavis-chembl-1.0.0-SNAPSHOT.jar"]
     }
   }
 }

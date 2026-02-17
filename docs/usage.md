@@ -222,16 +222,32 @@ You can run multiple CLAVIS servers simultaneously. Each server is a separate pr
   "mcpServers": {
     "clavis-pubmed": {
       "command": "java",
-      "args": ["-jar", "/path/to/clavis-pubmed-1.0.0-SNAPSHOT.jar"],
+      "args": ["-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener", "-jar", "/path/to/clavis-pubmed-1.0.0-SNAPSHOT.jar"],
       "env": {"NCBI_API_KEY": "key", "NCBI_EMAIL": "email"}
+    },
+    "clavis-semanticscholar": {
+      "command": "java",
+      "args": ["-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener", "-jar", "/path/to/clavis-semanticscholar-1.0.0-SNAPSHOT.jar"]
     },
     "clavis-chembl": {
       "command": "java",
-      "args": ["-jar", "/path/to/clavis-chembl-1.0.0-SNAPSHOT.jar"]
+      "args": ["-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener", "-jar", "/path/to/clavis-chembl-1.0.0-SNAPSHOT.jar"]
+    },
+    "clavis-pubchem": {
+      "command": "java",
+      "args": ["-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener", "-jar", "/path/to/clavis-pubchem-1.0.0-SNAPSHOT.jar"]
     },
     "clavis-clinicaltrials": {
       "command": "java",
-      "args": ["-jar", "/path/to/clavis-clinicaltrials-1.0.0-SNAPSHOT.jar"]
+      "args": ["-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener", "-jar", "/path/to/clavis-clinicaltrials-1.0.0-SNAPSHOT.jar"]
+    },
+    "clavis-uniprot": {
+      "command": "java",
+      "args": ["-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener", "-jar", "/path/to/clavis-uniprot-1.0.0-SNAPSHOT.jar"]
+    },
+    "clavis-kegg": {
+      "command": "java",
+      "args": ["-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener", "-jar", "/path/to/clavis-kegg-1.0.0-SNAPSHOT.jar"]
     }
   }
 }
@@ -245,16 +261,16 @@ The AI client will discover tools from all connected servers and can use them to
 
 | Server | Tools | Status |
 |--------|-------|--------|
-| **PubMed** | `search_pubmed`, `get_pubmed_paper`, `get_related_papers` | ✅ Ready |
-| **Europe PMC** | `search_europepmc`, `get_europepmc_paper` | 🔧 Stub |
-| **Semantic Scholar** | `search_papers`, `get_paper`, `get_citations` | 🔧 Stub |
-| **arXiv** | `search_arxiv`, `get_arxiv_paper` | 🔧 Stub |
-| **ClinicalTrials** | `search_trials`, `get_trial` | 🔧 Stub |
+| **PubMed** | `search_pubmed`, `get_pubmed_paper`, `get_related_papers`, `track_citations`, `search_by_author`, `check_retractions`, `batch_retrieve`, `get_related_database_links` | ✅ Ready |
+| **Europe PMC** | *(not yet implemented)* | 🔧 Stub |
+| **Semantic Scholar** | `s2_search`, `s2_get_paper`, `s2_get_citations`, `s2_get_references`, `s2_search_author`, `s2_get_author`, `s2_get_author_papers`, `s2_recommend_papers` | ✅ Ready |
+| **arXiv** | *(not yet implemented)* | 🔧 Stub |
+| **ClinicalTrials** | `ct_search_condition`, `ct_search_intervention`, `ct_get_study`, `ct_search_studies` | ✅ Ready |
 | **ChEMBL** | `chembl_search_compounds`, `chembl_get_compound`, `chembl_get_drug_mechanism`, `chembl_get_bioactivity` | ✅ Ready |
-| **PubChem** | `search_compounds`, `get_compound` | 🔧 Stub |
-| **UniProt** | `search_proteins`, `get_protein` | 🔧 Stub |
-| **KEGG** | `search_pathways`, `get_pathway` | 🔧 Stub |
-| **Reactome** | `search_pathways`, `get_pathway` | 🔧 Stub |
+| **PubChem** | `pubchem_search_compound`, `pubchem_get_compound`, `pubchem_get_description`, `pubchem_search_smiles`, `pubchem_get_synonyms` | ✅ Ready |
+| **UniProt** | `uniprot_search`, `uniprot_get_protein`, `uniprot_get_sequence`, `uniprot_search_gene`, `uniprot_get_function`, `uniprot_search_organism` | ✅ Ready |
+| **KEGG** | `kegg_search_pathways`, `kegg_get_pathway`, `kegg_search_genes`, `kegg_get_linked_pathways`, `kegg_search_compounds` | ✅ Ready |
+| **Reactome** | *(not yet implemented)* | 🔧 Stub |
 
 ---
 

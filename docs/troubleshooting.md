@@ -158,7 +158,7 @@ sdk install maven              # SDKMAN
 ## Getting Help
 
 1. **Check the [FAQ](faq.md)** for common questions
-2. **Search [existing issues](https://github.com/your-org/CLAVIS/issues)**
+2. **Search [existing issues](https://github.com/ladybugsaga/CLAVIS/issues)**
 3. **Open a new issue** with:
    - Steps to reproduce
    - Expected vs actual behavior

@@ -319,13 +319,53 @@ Get details of an arXiv paper by ID.
 
 ---
 
-## ClinicalTrials.gov Tools (Stub)
+## ClinicalTrials.gov Tools
 
-### `search_trials`
-Search clinical trial registrations.
+### `ct_search_condition`
 
-### `get_trial`
-Get detailed trial information by NCT number.
+Search clinical trials by condition or disease.
+
+**Parameters:**
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `condition` | string | ✅ | — | Disease/condition (e.g. "lung cancer") |
+| `pageSize` | integer | ❌ | 10 | Max results |
+
+---
+
+### `ct_search_intervention`
+
+Search trials by intervention or treatment.
+
+**Parameters:**
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `intervention` | string | ✅ | — | Treatment name (e.g. "pembrolizumab") |
+| `pageSize` | integer | ❌ | 10 | Max results |
+
+---
+
+### `ct_get_study`
+
+Get full details for a specific trial by NCT ID.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `nctId` | string | ✅ | NCT identifier (e.g. `NCT04267848`) |
+
+---
+
+### `ct_search_studies`
+
+General keyword search with optional status filter.
+
+**Parameters:**
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `query` | string | ✅ | — | Search keyword |
+| `status` | string | ❌ | all | `RECRUITING`, `COMPLETED`, `ACTIVE_NOT_RECRUITING`, etc. |
+| `pageSize` | integer | ❌ | 10 | Max results |
 
 ---
 
@@ -379,13 +419,64 @@ Get detailed trial information by NCT number.
 
 ---
 
-## PubChem Tools (Stub)
+## PubChem Tools
 
-### `search_compounds`
-Search PubChem's chemical compound database.
+### `pubchem_search_compound`
 
-### `get_compound`
-Get compound details including structure.
+Search PubChem compounds by name.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `name` | string | ✅ | Compound name (e.g. "aspirin", "caffeine") |
+
+**Response:** Molecular formula, weight, IUPAC name, SMILES, InChIKey, XLogP, H-bond donors/acceptors.
+
+---
+
+### `pubchem_get_compound`
+
+Get detailed compound properties by PubChem CID.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `cid` | integer | ✅ | PubChem Compound ID (e.g. `2244` for aspirin) |
+
+**Response:** Full property set including TPSA, complexity, exact mass, charge, isomeric SMILES.
+
+---
+
+### `pubchem_get_description`
+
+Get textual descriptions/summaries from multiple sources.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `cid` | integer | ✅ | PubChem CID |
+
+---
+
+### `pubchem_search_smiles`
+
+Search by SMILES chemical structure notation.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `smiles` | string | ✅ | SMILES string (e.g. `CC(=O)OC1=CC=CC=C1C(=O)O`) |
+
+---
+
+### `pubchem_get_synonyms`
+
+Get all known synonyms (trade names, IUPAC, common names) for a compound.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `cid` | integer | ✅ | PubChem CID |
 
 ---
 
@@ -464,13 +555,60 @@ Search proteins within a specific organism.
 
 ---
 
-## KEGG Tools (Stub)
+## KEGG Tools
 
-### `search_pathways`
-Search KEGG biological pathways.
+### `kegg_search_pathways`
 
-### `get_pathway`
-Get pathway details and gene associations.
+Search KEGG biological pathways by keyword.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `query` | string | ✅ | Search keyword (e.g. "apoptosis", "cancer") |
+
+---
+
+### `kegg_get_pathway`
+
+Get detailed pathway information by KEGG ID.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `pathwayId` | string | ✅ | KEGG pathway ID (e.g. `hsa04210`) |
+
+---
+
+### `kegg_search_genes`
+
+Search for genes related to a keyword.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `query` | string | ✅ | Gene or keyword (e.g. "BRCA1", "insulin") |
+
+---
+
+### `kegg_get_linked_pathways`
+
+Find pathways linked to a specific gene.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `geneId` | string | ✅ | KEGG gene ID (e.g. `hsa:672`) |
+
+---
+
+### `kegg_search_compounds`
+
+Search KEGG chemical compounds.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `query` | string | ✅ | Compound name (e.g. "glucose", "ATP") |
 
 ---
 

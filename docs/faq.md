@@ -19,18 +19,18 @@ The [Model Context Protocol](https://modelcontextprotocol.io/) is an open standa
 Yes. CLAVIS itself is open source under the MIT License. Most biomedical APIs it connects to are also free (PubMed, Europe PMC, arXiv, PubChem, UniProt, ChEMBL, etc.).
 
 ### Which databases are supported?
-| Database | Type | Status |
-|----------|------|--------|
+| Server | Database | Status |
+|--------|----------|--------|
 | PubMed | Literature (36M+ papers) | ✅ Ready |
-| Europe PMC | Literature (open access) | 🔧 Stub |
-| Semantic Scholar | Literature (AI-powered) | 🔧 Stub |
-| arXiv | Preprints | 🔧 Stub |
-| ClinicalTrials.gov | Clinical trials | 🔧 Stub |
+| Semantic Scholar | Literature (AI-powered) | ✅ Ready |
+| UniProt | Proteins (250M+ entries) | ✅ Ready |
 | ChEMBL | Bioactive compounds | ✅ Ready |
-| PubChem | Chemical compounds | 🔧 Stub |
-| UniProt | Proteins | 🔧 Stub |
-| KEGG | Pathways | 🔧 Stub |
-| Reactome | Pathways | 🔧 Stub |
+| PubChem | Chemical compounds | ✅ Ready |
+| KEGG | Biological pathways | ✅ Ready |
+| ClinicalTrials.gov | Clinical studies | ✅ Ready |
+| Europe PMC | Literature, patents | 🔧 Stub |
+| arXiv | Physics, AI preprints | 🔧 Stub |
+| Reactome | Pathway diagrams | 🔧 Stub |
 
 ---
 

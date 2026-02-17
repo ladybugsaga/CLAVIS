@@ -3,7 +3,7 @@
 ## 1. Clone & Build (2 min)
 
 ```bash
-git clone https://github.com/your-org/CLAVIS.git
+git clone https://github.com/ladybugsaga/CLAVIS.git
 cd CLAVIS
 mvn clean install -DskipTests
 ```
@@ -41,9 +41,9 @@ Add:
 ```json
 {
   "mcpServers": {
-    "pubmed": {
+    "clavis-pubmed": {
       "command": "java",
-      "args": ["-jar", "/absolute/path/to/CLAVIS/clavis-pubmed/target/clavis-pubmed-1.0.0-SNAPSHOT.jar"],
+      "args": ["-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener", "-jar", "/absolute/path/to/CLAVIS/clavis-pubmed/target/clavis-pubmed-1.0.0-SNAPSHOT.jar"],
       "env": {
         "NCBI_API_KEY": "your_api_key",
         "NCBI_EMAIL": "your_email"

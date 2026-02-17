@@ -48,20 +48,14 @@ CLAVIS/
 │       ├── logging/             # StructuredLogger
 │       └── exception/           # ClavisException, ApiException, etc.
 ├── clavis-pubmed/               # PubMed MCP server
-│   └── src/main/java/io/clavis/pubmed/
-│       ├── PubMedServer.java    # Main entry point
-│       ├── PubMedClient.java    # E-utilities API client
-│       ├── PubMedTools.java     # MCP tool definitions
-│       ├── parsers/             # XML/JSON parsers
-│       └── models/              # PubMed-specific models
 ├── clavis-europepmc/            # Europe PMC server (stub)
-├── clavis-semanticscholar/      # Semantic Scholar server (stub)
+├── clavis-semanticscholar/      # Semantic Scholar server
 ├── clavis-arxiv/                # arXiv server (stub)
-├── clavis-clinicaltrials/       # ClinicalTrials.gov server (stub)
+├── clavis-clinicaltrials/       # ClinicalTrials.gov server
 ├── clavis-chembl/               # ChEMBL server
-├── clavis-pubchem/              # PubChem server (stub)
-├── clavis-uniprot/              # UniProt server (stub)
-├── clavis-kegg/                 # KEGG server (stub)
+├── clavis-pubchem/              # PubChem server
+├── clavis-uniprot/              # UniProt server
+├── clavis-kegg/                 # KEGG server
 └── clavis-reactome/             # Reactome server (stub)
 ```
 

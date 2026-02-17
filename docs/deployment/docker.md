@@ -11,7 +11,7 @@ WORKDIR /app
 
 # Copy all server JARs
 COPY clavis-pubmed/target/clavis-pubmed-*.jar /app/clavis-pubmed.jar
-COPY clavis-europepmc/target/clavis-europepmc-*.jar /app/clavis-europepmc.jar
+COPY clavis-chembl/target/clavis-chembl-*.jar /app/clavis-chembl.jar
 # ... (repeat for each server)
 
 # Default: start PubMed server
@@ -53,9 +53,9 @@ services:
       - NCBI_EMAIL=${NCBI_EMAIL}
     stdin_open: true
 
-  europepmc:
+  chembl:
     build: .
-    command: ["/app/clavis-europepmc.jar"]
+    command: ["/app/clavis-chembl.jar"]
     stdin_open: true
 
   chembl:

@@ -53,4 +53,4 @@ General keyword search with optional status filter.
 
 ---
 
-*See also: [API Reference](api-reference.md) | [KEGG Guide](kegg-guide.md)*
+*See also: [API Reference](api-reference.md) | [KEGG Guide](kegg-guide.md) | [PubChem Guide](pubchem-guide.md)*

@@ -15,7 +15,7 @@ mvn clean install -pl clavis-core,clavis-arxiv
 ```
 
 ```json
-{"mcpServers": {"arxiv": {"command": "java", "args": ["-jar", "/path/to/clavis-arxiv/target/clavis-arxiv-1.0.0-SNAPSHOT.jar"]}}}
+{"mcpServers": {"clavis-arxiv": {"command": "java", "args": ["-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener", "-jar", "/path/to/clavis-arxiv/target/clavis-arxiv-1.0.0-SNAPSHOT.jar"]}}}
 ```
 
 ## API Details

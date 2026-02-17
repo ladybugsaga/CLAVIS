@@ -16,7 +16,7 @@ mvn clean install -pl clavis-core,clavis-europepmc
 
 Add to Claude config:
 ```json
-{"mcpServers": {"europepmc": {"command": "java", "args": ["-jar", "/path/to/clavis-europepmc/target/clavis-europepmc-1.0.0-SNAPSHOT.jar"]}}}
+{"mcpServers": {"clavis-europepmc": {"command": "java", "args": ["-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener", "-jar", "/path/to/clavis-europepmc/target/clavis-europepmc-1.0.0-SNAPSHOT.jar"]}}}
 ```
 
 ## API Details
