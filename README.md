@@ -49,7 +49,7 @@ Claude: "Here are 10 relevant papers with summaries..."
 | `clavis-chembl` | [ChEMBL](https://www.ebi.ac.uk/chembl/) | 2.4M+ bioactive compounds | None | ✅ Ready |
 | `clavis-pubchem` | [PubChem](https://pubchem.ncbi.nlm.nih.gov/) | 100M+ compounds | None | 🔧 Stub |
 | `clavis-uniprot` | [UniProt](https://www.uniprot.org/) | 250M+ proteins | None | ✅ Ready |
-| `clavis-kegg` | [KEGG](https://www.kegg.jp/) | 500K+ pathways | None | 🔧 Stub |
+| `clavis-kegg` | [KEGG](https://www.kegg.jp/) | 500K+ pathways | None | ✅ Ready |
 | `clavis-reactome` | [Reactome](https://reactome.org/) | 15K+ pathways | None | 🔧 Stub |
 
 ---
