@@ -197,16 +197,55 @@ Find all papers by a specific researcher.
 
 ---
 
-## Europe PMC Tools (Stub)
+## Europe PMC Tools
 
-### `search_europepmc`
-Search Europe PMC's open-access literature collection.
+### `epmc_search`
 
-### `get_europepmc_paper`
-Retrieve a paper from Europe PMC by ID.
+Search Europe PMC's collection of 40M+ biomedical papers, patents, and preprints.
 
-> [!NOTE]
-> Europe PMC tools are currently stubs and will be implemented in a future release.
+**Parameters:**
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `query` | string | ✅ | — | Search query (e.g. 'cancer', 'author:"Smith J"') |
+| `pageSize` | integer | ❌ | 10 | Max results to return |
+
+---
+
+### `epmc_get_details`
+
+Get full details for a specific Europe PMC article using ID and source.
+
+**Parameters:**
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | ✅ | — | Article ID (e.g. '33116279') |
+| `source` | string | ❌ | MED | Source: MED, PMC, PAT, AGR, etc. |
+
+---
+
+### `epmc_get_citations`
+
+Get list of articles that cite the specified Europe PMC article.
+
+**Parameters:**
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | ✅ | — | Article ID |
+| `source` | string | ❌ | MED | Data source |
+| `pageSize` | integer | ❌ | 10 | Max results |
+
+---
+
+### `epmc_get_references`
+
+Get literature references for the specified Europe PMC article.
+
+**Parameters:**
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `id` | string | ✅ | — | Article ID |
+| `source` | string | ❌ | MED | Data source |
+| `pageSize` | integer | ❌ | 10 | Max results |
 
 ---
 

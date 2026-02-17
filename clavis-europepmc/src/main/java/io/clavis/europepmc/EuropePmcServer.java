@@ -17,8 +17,15 @@ public class EuropePmcServer extends MCPServer {
 
     @Override
     protected void registerTools() {
-        // TODO: Register europepmc tools
-        logger.info("CLAVIS Europe PMC MCP Server initialized (stub)");
+        EuropePmcClient client = new EuropePmcClient();
+        EuropePmcTools tools = new EuropePmcTools(client);
+
+        this.tools.add(tools.createSearchTool());
+        this.tools.add(tools.createGetDetailsTool());
+        this.tools.add(tools.createGetCitationsTool());
+        this.tools.add(tools.createGetReferencesTool());
+
+        logger.info("CLAVIS Europe PMC MCP Server initialized with 4 tools");
     }
 
     public static void main(String[] args) {

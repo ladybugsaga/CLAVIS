@@ -19,13 +19,28 @@ Add to Claude config:
 {"mcpServers": {"clavis-europepmc": {"command": "java", "args": ["-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener", "-jar", "/path/to/clavis-europepmc/target/clavis-europepmc-1.0.0-SNAPSHOT.jar"]}}}
 ```
 
+## Tools
+
+### `epmc_search`
+Search Europe PMC's collection. Supports query syntax for titles, authors, and sources.
+
+**Example**: `author:"Smith J" cancer`
+
+### `epmc_get_details`
+Retrieve metadata, abstract, and external links for a specific article.
+
+**Parameters**: `id` (e.g. "33116279"), `source` (default "MED")
+
+### `epmc_get_citations`
+Get articles that cite the specified publication.
+
+### `epmc_get_references`
+Fetch the bibliography of the specified publication.
+
 ## API Details
 - **Base URL**: `https://www.ebi.ac.uk/europepmc/webservices/rest`
-- **Rate Limit**: Generous (no key needed)
-- **Formats**: JSON, XML
-- **Docs**: [Europe PMC API](https://europepmc.org/RestfulWebService)
-
-## Status: 🔧 Stub — Implementation coming soon
+- **Rate Limit**: 10 requests per second
+- **Status**: ✅ Ready
 
 ---
 

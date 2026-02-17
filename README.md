@@ -48,7 +48,7 @@ Claude: "Here are 10 relevant papers with summaries..."
 | `clavis-pubchem` | [PubChem](https://pubchem.ncbi.nlm.nih.gov/) | 100M+ compounds, chemical properties | None | ✅ Ready |
 | `clavis-uniprot` | [UniProt](https://www.uniprot.org/) | 250M+ proteins, sequences/function | None | ✅ Ready |
 | `clavis-kegg` | [KEGG](https://www.kegg.jp/) | 500K+ pathways, genes, genomes | None | ✅ Ready |
-| `clavis-europepmc` | [Europe PMC](https://europepmc.org/) | 40M+ papers, patents, preprints | None | 🔧 Stub |
+| `clavis-europepmc` | [Europe PMC](https://europepmc.org/) | 40M+ papers, patents, preprints | None | ✅ Ready |
 | `clavis-arxiv` | [arXiv](https://arxiv.org/) | 2.4M+ preprints, AI/Physics | None | 🔧 Stub |
 | `clavis-reactome` | [Reactome](https://reactome.org/) | 15K+ pathways, diagram data | None | 🔧 Stub |
 | `clavis-openfda` | [OpenFDA](https://open.fda.gov/apis) | 10M+ adverse event reports, recalls | None | 📜 Planned |
