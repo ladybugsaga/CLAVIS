@@ -56,7 +56,10 @@ CLAVIS/
 ├── clavis-pubchem/              # PubChem server
 ├── clavis-uniprot/              # UniProt server
 ├── clavis-kegg/                 # KEGG server
-└── clavis-reactome/             # Reactome server (stub)
+├── clavis-reactome/             # Reactome server
+├── clavis-dbsnp/              # dbSNP server
+├── clavis-alphafold/            # AlphaFold server
+└── clavis-unified/              # Unified server (Recommended)
 ```
 
 ---

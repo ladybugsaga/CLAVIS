@@ -85,29 +85,37 @@ mvn clean install
 cp .env.example .env
 # Edit .env or skip if you want to use free tier
 
-# 3. Connect to Claude Desktop
-# Add to your claude_desktop_config.json:
-```
+# 3. Connect to Claude Desktop (or Cline/VS Code)
+# Add to your mcpServers configuration:
 
 ```json
 {
   "mcpServers": {
-    "clavis-pubmed": {
+    "clavis-unified": {
       "command": "java",
-      "args": ["-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener", "-jar", "/path/to/clavis-pubmed-1.0.0-SNAPSHOT.jar"],
-      "env": {"NCBI_API_KEY": "your_key", "NCBI_EMAIL": "your_email"}
-    },
-    "clavis-chembl": {
-      "command": "java",
-      "args": ["-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener", "-jar", "/path/to/clavis-chembl-1.0.0-SNAPSHOT.jar"]
+      "args": [
+        "-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener",
+        "-jar",
+        "/absolute/path/to/CLAVIS/clavis-unified/target/clavis-unified-1.0.0-SNAPSHOT.jar"
+      ],
+      "env": {
+        "NCBI_API_KEY": "your_key",
+        "SEMANTIC_SCHOLAR_API_KEY": "your_key"
+      }
     }
   }
 }
 ```
 
-**That's it!** Restart Claude Desktop and ask: *"Search PubMed for CRISPR gene therapy papers"*
+**That's it!** Restart your AI assistant and try the test prompt below.
 
-→ Full guide: **[Quick Start](docs/quickstart.md)**
+---
+
+## 🧪 Unified Test Prompt
+
+Copy and paste this into your AI assistant to verify that all systems are working together:
+
+> "Research the drug **Metformin**. First, find its mechanism of action and bioactivity using **ChEMBL**. Then, search **PubMed** for clinical trials from 2023-2024 related to its use in 'aging'. Finally, check if there are any related protein pathways in **Reactome**."
 
 ---
 

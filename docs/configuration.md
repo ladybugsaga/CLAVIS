@@ -18,8 +18,8 @@ All CLAVIS configuration is done via environment variables or a `.env` file in t
 
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
-| `NCBI_API_KEY` | NCBI E-utilities API key | — | **Yes** |
-| `NCBI_EMAIL` | Email address (required by NCBI) | — | **Yes** |
+| `NCBI_API_KEY` | NCBI E-utilities API key | — | Recommended |
+| `NCBI_EMAIL` | Email address (used for contact) | `tool@clavis.io` | Recommended |
 | `PUBMED_RATE_LIMIT` | Requests per second | `10` | No |
 | `PUBMED_MAX_RESULTS` | Default max results | `20` | No |
 
@@ -75,6 +75,12 @@ CLAVIS loads configuration in this order (later sources override earlier):
 
 > [!TIP]
 > For production use, set variables via your system environment or MCP client config rather than `.env` files to avoid committing secrets.
+
+---
+
+## Unified Server Configuration
+
+When using `clavis-unified`, all variables defined below are shared across the internal modules. You only need one server entry in your MCP config to access everything.
 
 ---
 

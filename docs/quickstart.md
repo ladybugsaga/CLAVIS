@@ -8,12 +8,12 @@ cd CLAVIS
 mvn clean install -DskipTests
 ```
 
-## 2. Get an NCBI API Key (1 min)
+## 2. Get API Keys (Optional)
 
-1. Go to [NCBI Settings](https://www.ncbi.nlm.nih.gov/account/settings/)
-2. Sign in (or create a free account)
-3. Scroll to **API Key Management** → click **Create**
-4. Copy the key
+1. **NCBI** (PubMed): [Settings](https://www.ncbi.nlm.nih.gov/account/settings/)
+2. **Semantic Scholar**: [Settings](https://www.semanticscholar.org/product/api)
+
+Copy your keys to the `.env` file for higher rate limits.
 
 ## 3. Configure (30 sec)
 
@@ -23,8 +23,8 @@ cp .env.example .env
 
 Edit `.env`:
 ```
-NCBI_API_KEY=your_api_key_here
-NCBI_EMAIL=your_email@example.com
+NCBI_API_KEY=your_key
+SEMANTIC_SCHOLAR_API_KEY=your_key
 ```
 
 ## 4. Connect to Claude Desktop (1 min)
@@ -37,17 +37,18 @@ Edit your Claude Desktop config:
 | Linux | `~/.config/claude/claude_desktop_config.json` |
 | Windows | `%APPDATA%\Claude\claude_desktop_config.json` |
 
-Add:
+Add to your `mcpServers` configuration:
+
 ```json
 {
   "mcpServers": {
-    "clavis-pubmed": {
+    "clavis-unified": {
       "command": "java",
-      "args": ["-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener", "-jar", "/absolute/path/to/CLAVIS/clavis-pubmed/target/clavis-pubmed-1.0.0-SNAPSHOT.jar"],
-      "env": {
-        "NCBI_API_KEY": "your_api_key",
-        "NCBI_EMAIL": "your_email"
-      }
+      "args": [
+        "-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener",
+        "-jar",
+        "/absolute/path/to/CLAVIS/clavis-unified/target/clavis-unified-1.0.0-SNAPSHOT.jar"
+      ]
     }
   }
 }
@@ -57,24 +58,20 @@ Add:
 
 Restart Claude Desktop. Try these prompts:
 
-> "Search PubMed for recent CRISPR cancer therapy papers"
-
-> "Get the paper with PMID 33116279 and explain the key findings"
-
-> "Find papers related to this study on immunotherapy"
+> "Research the drug **Metformin**. First, find its mechanism of action and bioactivity using **ChEMBL**. Then, search **PubMed** for clinical trials related to its use in 'aging'. Finally, check if there are any related protein pathways in **Reactome**."
 
 ---
 
 ## What Just Happened?
 
 ```
-You ──▶ Claude Desktop ──▶ CLAVIS PubMed Server ──▶ PubMed API
-                                                        │
-You ◀── Claude Desktop ◀── CLAVIS PubMed Server ◀──────┘
-        (AI summary)        (structured data)     (36M+ papers)
+You ──▶ AI Client ──▶ CLAVIS Unified Server ──▶ Biomedical APIs
+                                                     │
+You ◀── AI Client ◀── CLAVIS Unified Server ◀────────┘
+        (Summary)      (57+ tools combined)    (PubMed, ChEMBL, etc.)
 ```
 
-Claude uses the `search_pubmed` tool to query PubMed's 36 million+ papers, gets structured results with titles, abstracts, authors, and DOIs, then synthesizes an intelligent answer.
+The unified server combines all 12 modules into a single process, providing over 50 tools to your AI assistant while minimizing memory usage.
 
 ---
 

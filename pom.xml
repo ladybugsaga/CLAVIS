@@ -34,6 +34,7 @@
         <module>clavis-reactome</module>
         <module>clavis-dbsnp</module>
         <module>clavis-alphafold</module>
+        <module>clavis-unified</module>
     </modules>
 
     <properties>
