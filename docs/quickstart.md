@@ -71,7 +71,7 @@ You ◀── AI Client ◀── CLAVIS Unified Server ◀───────
         (Summary)      (57+ tools combined)    (PubMed, ChEMBL, etc.)
 ```
 
-The unified server combines all 14 modules into a single process, providing over 60 tools to your AI assistant while minimizing memory usage.
+The unified server combines all 16 modules into a single process, providing 62 tools to your AI assistant while minimizing memory usage.
 
 ---
 

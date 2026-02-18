@@ -6,7 +6,7 @@
 
 **Unlocking Biomedical Knowledge for AI**
 
-*A Java-based ecosystem of MCP servers providing AI assistants with direct access to 10+ biomedical databases*
+*A Java-based ecosystem of MCP servers providing AI assistants with direct access to 14+ biomedical databases*
 
 [![Build](https://img.shields.io/badge/build-passing-brightgreen)]()
 [![Java](https://img.shields.io/badge/Java-17%2B-blue)]()
@@ -134,7 +134,7 @@ Copy and paste this into your AI assistant to verify that all systems are workin
                                     └────────────────┘
 ```
 
-- **13 Maven modules** — 1 core + 12 database servers
+- **16 Maven modules** — 1 core + 14 database servers
 - **MCP over stdio** — JSON-RPC protocol for AI clients
 - **Token bucket** rate limiting per API (auto-adjusts if no key provided)
 - **Exponential backoff** retry for transient failures
