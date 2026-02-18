@@ -53,7 +53,7 @@ Claude: "Here are 10 relevant papers with summaries..."
 | `clavis-reactome` | [Reactome](https://reactome.org/) | 15K+ pathways, diagram data | None | ✅ Ready |
 | `clavis-alphafold` | [AlphaFold](https://alphafold.ebi.ac.uk) | 200M+ AI-predicted 3D structures | None | ✅ Ready |
 | `clavis-dbsnp` | [dbSNP](https://www.ncbi.nlm.nih.gov/snp) | 650M+ genetic variants/freqs | None | ✅ Ready |
-| `clavis-openfda` | [OpenFDA](https://open.fda.gov/apis) | 10M+ adverse event reports, recalls | None | 📜 Planned |
+| `clavis-openfda` | [OpenFDA](https://open.fda.gov/apis) | 10M+ adverse event reports, recalls | [Optional](docs/signup.md) | ✅ Ready |
 | `clavis-dailymed` | [DailyMed](https://dailymed.nlm.nih.gov/dailymed/services) | 140K+ official FDA drug labels | None | 📜 Planned |
 | `clavis-rxnorm` | [RxNorm](https://rxnav.nlm.nih.gov) | 100K+ standardized drug names | None | 📜 Planned |
 | `clavis-opentargets` | [Open Targets](https://platform.opentargets.org) | 60K+ gene/disease targets | None | 📜 Planned |
@@ -65,7 +65,7 @@ Claude: "Here are 10 relevant papers with summaries..."
 | `clavis-ensembl` | [Ensembl](https://rest.ensembl.org) | Full human/multi-species genomes | None | 📜 Planned |
 | `clavis-biorxiv` | [bioRxiv/medRxiv](https://api.biorxiv.org) | 240K+ research preprints | None | 📜 Planned |
 | `clavis-chebi` | [ChEBI](https://www.ebi.ac.uk/chebi) | 60K+ chemical biology metabolites | None | 📜 Planned |
-| `clavis-intact` | [IntAct](https://www.ebi.ac.uk/intact) | 1M+ molecular interactions | None | 📜 Planned |
+| `clavis-intact` | [IntAct](https://www.ebi.ac.uk/intact) | 1M+ molecular interactions | None | ✅ Ready |
 | `clavis-pharmgkb` | [PharmGKB](https://api.pharmgkb.org) | 50K+ pharmacogenomic relationships | None | 📜 Planned |
 | `clavis-medlineplus` | [MedlinePlus](https://medlineplus.gov) | 40K+ patient-friendly help topics | None | 📜 Planned |
 | `clavis-nci` | [NCI Thesaurus](https://evsrestapi.nci.nih.gov) | 170K+ authoritative cancer terms | None | 📜 Planned |
@@ -134,7 +134,7 @@ Copy and paste this into your AI assistant to verify that all systems are workin
                                     └────────────────┘
 ```
 
-- **11 Maven modules** — 1 core + 10 database servers
+- **13 Maven modules** — 1 core + 12 database servers
 - **MCP over stdio** — JSON-RPC protocol for AI clients
 - **Token bucket** rate limiting per API (auto-adjusts if no key provided)
 - **Exponential backoff** retry for transient failures
@@ -174,6 +174,8 @@ Refer to **[API Reference](docs/api-reference.md)** for the complete list of too
 | **[UniProt](docs/uniprot-guide.md)** | Protein sequences |
 | **[KEGG](docs/kegg-guide.md)** | Biological pathways |
 | **[Reactome](docs/reactome-guide.md)** | Pathway data |
+| **[OpenFDA](docs/openfda-guide.md)** | Adverse events & recalls |
+| **[IntAct](docs/intact-guide.md)** | Molecular interactions |
 
 ### Reference & Operations
 | Guide | Description |

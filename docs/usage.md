@@ -180,7 +180,7 @@ Then send JSON-RPC messages via stdin:
 
 ## Unified Process
 
-Previously, CLAVIS ran as 12 independent servers. We transitioned to a **Unified Server** architecture to save RAM and simplify management. The `clavis-unified` module aggregates all tools into a single process.
+Previously, CLAVIS ran as 14 independent servers. We transitioned to a **Unified Server** architecture to save RAM and simplify management. The `clavis-unified` module aggregates all tools into a single process.
 
 If you still need to run an individual server for debugging, you can still do so by targeting its specific JAR in the submodule `target/` directory.
 
@@ -190,7 +190,7 @@ If you still need to run an individual server for debugging, you can still do so
 
 | Server | Status |
 |--------|--------|
-| **clavis-unified** | ✅ Ready (Includes all 57+ tools) |
+| **clavis-unified** | ✅ Ready (Includes all 62 total tools) |
 
 ---
 

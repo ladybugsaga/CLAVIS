@@ -40,6 +40,16 @@ All CLAVIS configuration is done via environment variables or a `.env` file in t
 **Getting your key:** [Semantic Scholar API](https://www.semanticscholar.org/product/api#api-key)
 
 ---
+
+## OpenFDA Configuration
+
+| Variable | Description | Default | Required |
+|----------|-------------|---------|----------|
+| `OPENFDA_API_KEY` | API key for higher rate limits | — | Recommended |
+
+**Getting your key:** [OpenFDA API Key](https://open.fda.gov/api-key/)
+
+---
 ---
 
 ## ChEMBL & PubChem Configuration
@@ -59,8 +69,10 @@ These servers use free, open APIs:
 | **UniProt** | Protein sequence and function |
 | **ClinicalTrials.gov** | Clinical study registrations |
 | **KEGG** | Biological pathways and genomes |
-| **Europe PMC** | (Stub) Literature, patents, preprints |
-| **arXiv** | (Stub) Preprint search |
+| **Europe PMC** | Literature, patents, preprints |
+| **OpenFDA** | Adverse events, recalls, labels |
+| **IntAct** | Molecular interactions |
+| **arXiv** | Preprint search |
 | **Reactome** | (Stub) Pathway diagram data |
 
 ---

@@ -661,6 +661,74 @@ Get pathway diagram and participant details.
 
 ---
 
+## OpenFDA Tools
+
+### `openfda_search_adverse_events`
+
+Search FAERS reports for drug adverse events.
+
+**Parameters:**
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `query` | string | ✅ | — | OpenFDA query (e.g. `patient.drug.medicinalproduct:aspirin`) |
+| `limit` | integer | ❌ | 10 | Max results |
+
+---
+
+### `openfda_search_drug_labels`
+
+Search SPL drug labeling.
+
+**Parameters:**
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `query` | string | ✅ | — | OpenFDA query (e.g. `openfda.brand_name:lipitor`) |
+| `limit` | integer | ❌ | 10 | Max results |
+
+---
+
+### `openfda_search_recalls`
+
+Search drug enforcement reports.
+
+**Parameters:**
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `query` | string | ✅ | — | OpenFDA query (e.g. `reason_for_recall:contamination`) |
+| `limit` | integer | ❌ | 10 | Max results |
+
+---
+
+## IntAct Tools
+
+### `intact_search_interactions`
+
+Search for molecular interactions by gene/protein name.
+
+**Parameters:**
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `query` | string | ✅ | — | Gene/protein name or query |
+| `page` | integer | ❌ | 0 | Page number |
+| `pageSize` | integer | ❌ | 10 | Results per page |
+
+---
+
+### `intact_get_interactors`
+
+Search for interactors (proteins/genes) in the database.
+
+**Parameters:**
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `query` | string | ✅ | — | Gene/protein name or query |
+| `page` | integer | ❌ | 0 | Page number |
+| `pageSize` | integer | ❌ | 10 | Results per page |
+
+---
+
+---
+
 ## Error Responses
 
 All tools return errors in this format:
