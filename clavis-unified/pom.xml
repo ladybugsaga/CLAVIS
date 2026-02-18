@@ -90,6 +90,11 @@
             <artifactId>clavis-clinicaltrials</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.clavis</groupId>
+            <artifactId>clavis-openfda</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

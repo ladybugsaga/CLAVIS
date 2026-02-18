@@ -35,6 +35,7 @@
         <module>clavis-dbsnp</module>
         <module>clavis-alphafold</module>
         <module>clavis-unified</module>
+        <module>clavis-openfda</module>
     </modules>
 
     <properties>

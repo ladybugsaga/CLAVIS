@@ -22,6 +22,8 @@ import io.clavis.chembl.ChEMBLTools;
 import io.clavis.pubchem.PubChemTools;
 import io.clavis.kegg.KEGGTools;
 import io.clavis.clinicaltrials.ClinicalTrialsTools;
+import io.clavis.openfda.OpenFdaClient;
+import io.clavis.openfda.OpenFdaTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -183,6 +185,17 @@ public class UnifiedServer extends MCPServer {
             logger.info("Registered dbSNP tools");
         } catch (Exception e) {
             logger.error("Failed to register dbSNP tools", e);
+        }
+
+        // 13. OpenFDA
+        try {
+            String openFdaKey = config.get("OPENFDA_API_KEY", "");
+            var openFdaClient = new OpenFdaClient(openFdaKey);
+            var openFdaTools = new OpenFdaTools(openFdaClient);
+            tools.addAll(openFdaTools.getAllTools());
+            logger.info("Registered OpenFDA tools");
+        } catch (Exception e) {
+            logger.error("Failed to register OpenFDA tools", e);
         }
 
         logger.info("Unified MCP Server ready with {} total tools", tools.size());
