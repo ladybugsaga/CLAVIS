@@ -36,6 +36,7 @@
         <module>clavis-alphafold</module>
         <module>clavis-unified</module>
         <module>clavis-openfda</module>
+        <module>clavis-intact</module>
     </modules>
 
     <properties>

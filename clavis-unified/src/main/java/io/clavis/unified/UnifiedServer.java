@@ -24,6 +24,8 @@ import io.clavis.kegg.KEGGTools;
 import io.clavis.clinicaltrials.ClinicalTrialsTools;
 import io.clavis.openfda.OpenFdaClient;
 import io.clavis.openfda.OpenFdaTools;
+import io.clavis.intact.IntActClient;
+import io.clavis.intact.IntActTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -196,6 +198,15 @@ public class UnifiedServer extends MCPServer {
             logger.info("Registered OpenFDA tools");
         } catch (Exception e) {
             logger.error("Failed to register OpenFDA tools", e);
+        }
+
+        // 14. IntAct
+        try {
+            var intactTools = new IntActTools();
+            tools.addAll(intactTools.createAllTools());
+            logger.info("Registered IntAct tools");
+        } catch (Exception e) {
+            logger.error("Failed to register IntAct tools", e);
         }
 
         logger.info("Unified MCP Server ready with {} total tools", tools.size());
