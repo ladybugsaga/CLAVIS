@@ -85,9 +85,13 @@ mvn clean install
 cp .env.example .env
 # Edit .env or skip if you want to use free tier
 
+**That's it!** You've built the project. Now choose how to connect it below.
+
 ---
 
-### ⚙️ Claude Desktop Configuration
+## ⚙️ Connection & Configuration
+
+### Claude Desktop
 
 Add the following to your `claude_desktop_config.json` (usually in `%APPDATA%\Claude` on Windows or `~/Library/Application Support/Claude` on macOS):
 
@@ -108,8 +112,6 @@ Add the following to your `claude_desktop_config.json` (usually in `%APPDATA%\Cl
   }
 }
 ```
-
----
 
 **That's it!** Restart your AI assistant and try the test prompt below.
 
