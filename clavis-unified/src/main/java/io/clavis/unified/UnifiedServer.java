@@ -28,6 +28,8 @@ import io.clavis.intact.IntActClient;
 import io.clavis.intact.IntActTools;
 import io.clavis.dailymed.DailyMedClient;
 import io.clavis.dailymed.DailyMedTools;
+import io.clavis.opentargets.OpenTargetsClient;
+import io.clavis.opentargets.OpenTargetsTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -219,6 +221,16 @@ public class UnifiedServer extends MCPServer {
             logger.info("Registered DailyMed tools");
         } catch (Exception e) {
             logger.error("Failed to register DailyMed tools", e);
+        }
+
+        // 16. Open Targets
+        try {
+            var opentargetsClient = new OpenTargetsClient();
+            var opentargetsTools = new OpenTargetsTools(opentargetsClient);
+            tools.addAll(opentargetsTools.getAllTools());
+            logger.info("Registered Open Targets tools");
+        } catch (Exception e) {
+            logger.error("Failed to register Open Targets tools", e);
         }
 
         logger.info("Unified MCP Server ready with {} total tools", tools.size());

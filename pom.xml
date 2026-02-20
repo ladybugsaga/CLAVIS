@@ -34,10 +34,11 @@
         <module>clavis-reactome</module>
         <module>clavis-dbsnp</module>
         <module>clavis-alphafold</module>
-        <module>clavis-unified</module>
         <module>clavis-openfda</module>
         <module>clavis-intact</module>
         <module>clavis-dailymed</module>
+        <module>clavis-opentargets</module>
+        <module>clavis-unified</module>
     </modules>
 
     <properties>
