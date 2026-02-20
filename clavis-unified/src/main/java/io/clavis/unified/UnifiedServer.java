@@ -44,6 +44,8 @@ import io.clavis.pharmvar.PharmVarClient;
 import io.clavis.pharmvar.PharmVarTools;
 import io.clavis.clinvar.ClinVarClient;
 import io.clavis.clinvar.ClinVarTools;
+import io.clavis.ensembl.EnsemblClient;
+import io.clavis.ensembl.EnsemblTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -315,6 +317,16 @@ public class UnifiedServer extends MCPServer {
             logger.info("Registered ClinVar tools");
         } catch (Exception e) {
             logger.error("Failed to register ClinVar tools", e);
+        }
+
+        // 24. Ensembl
+        try {
+            var ensemblClient = new EnsemblClient();
+            var ensemblTools = new EnsemblTools(ensemblClient);
+            tools.addAll(ensemblTools.getAllTools());
+            logger.info("Registered Ensembl tools");
+        } catch (Exception e) {
+            logger.error("Failed to register Ensembl tools", e);
         }
 
         logger.info("Unified MCP Server ready with {} total tools", tools.size());

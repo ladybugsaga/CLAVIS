@@ -278,6 +278,20 @@ Standardized drug nomenclature and identifier mapping through the NLM RxNav API.
 
 ---
 
+## 🌍 Ensembl Genomic Data (`clavis-ensembl`)
+
+Access to human and multi-species genomic data, including gene lookups, sequence retrieval, and variant effect prediction.
+
+| Tool | Parameters | Description |
+|:---|:---|:---|
+| `ensembl_lookup_symbol` | `symbol`, `species` | Lookup Ensembl identifiers and details for a gene symbol. |
+| `ensembl_lookup_id` | `id` | Retrieve details for a specific Ensembl identifier. |
+| `ensembl_get_sequence` | `id`, `type` | Retrieve genomic, cDNA, CDS, or protein sequence for an identifier. |
+| `ensembl_get_overlap` | `id`, `feature` | Retrieve genomic features (e.g., variations) overlapping a region or identifier. |
+| `ensembl_get_vep` | `variant`, `species` | Retrieve Variant Effect Predictor (VEP) consequences for a variant. |
+
+---
+
 ## 🏥 ClinVar Clinical Significance (`clavis-clinvar`)
 
 Access to interpretations of human genetic variation and its clinical significance from the NCBI ClinVar database.

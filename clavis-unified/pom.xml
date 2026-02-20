@@ -145,6 +145,11 @@
             <artifactId>clavis-clinvar</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.clavis</groupId>
+            <artifactId>clavis-ensembl</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
