@@ -86,7 +86,6 @@ graph LR
 | `clavis-pharmvar` | [PharmVar](https://www.pharmvar.org) | Pharmacogene variations, star alleles | None | ✅ Ready |
 | `clavis-sider` | [SIDER](http://sideeffects.embl.de) | 140K+ drug-side effect pairs | None | 📜 Planned |
 | `clavis-stitch` | [STITCH](http://stitch.embl.de) | 9.6M+ chemical-protein interactions | None | 📜 Planned |
-| `clavis-superdrug` | [SuperDRUG2](http://cheminfo.charite.de/superdrug2) | 4.6K+ approved/investigational drugs | None | 📜 Planned |
 | `clavis-drugcentral` | [DrugCentral](https://drugcentral.org) | 4.5K+ drugs with pharmacology/targets | None | 📜 Planned |
 | `clavis-ctd` | [CTD](http://ctdbase.org) | Chemical-gene-disease relationships | None | ✅ Ready |
 | `clavis-bindingdb` | [BindingDB](https://www.bindingdb.org) | 2.5M+ drug-target binding affinities | None | ✅ Ready |
