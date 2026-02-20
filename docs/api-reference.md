@@ -278,6 +278,18 @@ Standardized drug nomenclature and identifier mapping through the NLM RxNav API.
 
 ---
 
+## 🏥 ClinVar Clinical Significance (`clavis-clinvar`)
+
+Access to interpretations of human genetic variation and its clinical significance from the NCBI ClinVar database.
+
+| Tool | Parameters | Description |
+|:---|:---|:---|
+| `clinvar_search` | `query`, `max_results` | Search ClinVar for variants by gene, condition, or other terms. |
+| `clinvar_get_summary` | `uids` | Retrieve summary information for specific ClinVar Variation IDs. |
+| `clinvar_get_details` | `uids` | Retrieve full ClinVar records for UIDs in XML format. |
+
+---
+
 ## 🧬 PharmVar Variation (`clavis-pharmvar`)
 
 Access to pharmacogene variation data, star alleles, and functional annotations from the Pharmacogene Variation Consortium.

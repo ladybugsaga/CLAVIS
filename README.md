@@ -6,7 +6,7 @@
 
 **Unlocking Biomedical Knowledge for AI**
 
-*A Java-based ecosystem of MCP servers providing AI assistants with direct access to 22 biomedical databases*
+*A Java-based ecosystem of MCP servers providing AI assistants with direct access to 23 biomedical databases*
 
 [![Build](https://img.shields.io/badge/build-passing-brightgreen)]()
 [![Java](https://img.shields.io/badge/Java-17%2B-blue)]()
@@ -60,7 +60,7 @@ graph LR
 | `clavis-intact` | [IntAct](https://www.ebi.ac.uk/intact) | 1M+ molecular interactions | None | ✅ Ready |
 | `clavis-rxnorm` | [RxNorm](https://rxnav.nlm.nih.gov) | 100K+ standardized drug names | None | ✅ Ready |
 | `clavis-opentargets` | [Open Targets](https://platform.opentargets.org) | 60K+ gene/disease targets | None | ✅ Ready |
-| `clavis-clinvar` | [ClinVar](https://www.ncbi.nlm.nih.gov/clinvar) | 2M+ genetic variants, disease links | None | 📜 Planned |
+| `clavis-clinvar` | [ClinVar](https://www.ncbi.nlm.nih.gov/clinvar) | Genetic variants and disease links | None | ✅ Ready |
 | `clavis-string` | [STRING](https://string-db.org) | 67M+ protein interaction networks | None | 📜 Planned |
 | `clavis-pdb` | [PDB](https://www.rcsb.org) | 220K+ experimental 3D structures | None | 📜 Planned |
 | `clavis-gwas` | [GWAS Catalog](https://www.ebi.ac.uk/gwas) | 500K+ gen-variant associations | None | 📜 Planned |
