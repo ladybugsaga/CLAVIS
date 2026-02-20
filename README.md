@@ -6,33 +6,35 @@
 
 **Unlocking Biomedical Knowledge for AI**
 
-*A Java-based ecosystem of MCP servers providing AI assistants with direct access to 14+ biomedical databases*
+*A Java-based ecosystem of MCP servers providing AI assistants with direct access to 15+ biomedical databases*
 
 [![Build](https://img.shields.io/badge/build-passing-brightgreen)]()
 [![Java](https://img.shields.io/badge/Java-17%2B-blue)]()
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![MCP](https://img.shields.io/badge/MCP-compatible-purple)]()
 
-[Quick Start](docs/quickstart.md) · [Get API Keys](docs/signup.md) · [Installation](docs/installation.md) · [Usage Guide](docs/usage.md)
+[Quick Start](#-quick-start) · [Get API Keys](docs/signup.md) · [API Reference](docs/api-reference.md) · [Usage Guide](docs/usage.md)
 
 </div>
 
 ---
 
-## The Problem
+## 🧬 Overview
 
-Researchers waste hours manually searching disparate biomedical databases with different interfaces, query languages, and APIs. AI assistants hallucinate facts instead of looking them up.
+### The Problem
+Researchers waste hours manually searching disparate biomedical databases with different interfaces, query languages, and APIs. AI assistants often hallucinate facts instead of looking them up.
 
-## The Solution
+### The Solution
+CLAVIS (Latin for "key") provides AI assistants like **Claude**, **ChatGPT**, and **Cursor** with direct access to real-time biomedical data through the **Model Context Protocol (MCP)**.
 
-CLAVIS (Latin for "key") gives AI assistants like **Claude**, **ChatGPT**, **Cursor**, and **VS Code** direct access to real biomedical data through the **Model Context Protocol (MCP)**.
-
-```
-You: "Find recent CRISPR cancer therapy papers"
-  ↓
-Claude + CLAVIS → PubMed API → 36M+ papers
-  ↓
-Claude: "Here are 10 relevant papers with summaries..."
+```mermaid
+graph LR
+    User([User]) --> AI[AI Assistant]
+    AI --> CLAVIS[CLAVIS Unified Server]
+    CLAVIS --> DB1[(PubMed)]
+    CLAVIS --> DB2[(ChEMBL)]
+    CLAVIS --> DB3[(UniProt)]
+    CLAVIS --> DB4[(...)]
 ```
 
 ---
@@ -40,9 +42,9 @@ Claude: "Here are 10 relevant papers with summaries..."
 ## 🗄️ Supported Databases
 
 | Server | Database | Description / Records | API Key | Status |
-|--------|----------|-----------------------|---------|--------|
-| `clavis-pubmed` | [PubMed](https://pubmed.ncbi.nlm.nih.gov/) | 36M+ papers, life science journals | [Optional](docs/signup.md) | ✅ Ready |
-| `clavis-semanticscholar` | [Semantic Scholar](https://www.semanticscholar.org/) | 200M+ papers, AI-powered | [Optional](docs/signup.md) | ✅ Ready |
+|:---|:---|:---|:---:|:---:|
+| `clavis-pubmed` | [PubMed](https://pubmed.ncbi.nlm.nih.gov/) | 36M+ papers, life science journals | [Opt](docs/signup.md) | ✅ Ready |
+| `clavis-semanticscholar` | [Semantic Scholar](https://www.semanticscholar.org/) | 200M+ papers, AI-powered | [Opt](docs/signup.md) | ✅ Ready |
 | `clavis-clinicaltrials` | [ClinicalTrials.gov](https://clinicaltrials.gov/) | 470K+ trials, world's largest DB | None | ✅ Ready |
 | `clavis-chembl` | [ChEMBL](https://www.ebi.ac.uk/chembl/) | 2.4M+ bioactive compounds | None | ✅ Ready |
 | `clavis-pubchem` | [PubChem](https://pubchem.ncbi.nlm.nih.gov/) | 100M+ compounds, chemical properties | None | ✅ Ready |
@@ -53,47 +55,43 @@ Claude: "Here are 10 relevant papers with summaries..."
 | `clavis-reactome` | [Reactome](https://reactome.org/) | 15K+ pathways, diagram data | None | ✅ Ready |
 | `clavis-alphafold` | [AlphaFold](https://alphafold.ebi.ac.uk) | 200M+ AI-predicted 3D structures | None | ✅ Ready |
 | `clavis-dbsnp` | [dbSNP](https://www.ncbi.nlm.nih.gov/snp) | 650M+ genetic variants/freqs | None | ✅ Ready |
-| `clavis-openfda` | [OpenFDA](https://open.fda.gov/apis) | 10M+ adverse event reports, recalls | [Optional](docs/signup.md) | ✅ Ready |
+| `clavis-openfda` | [OpenFDA](https://open.fda.gov/apis) | 10M+ adverse event reports, recalls | [Opt](docs/signup.md) | ✅ Ready |
 | `clavis-dailymed` | [DailyMed](https://dailymed.nlm.nih.gov/dailymed/services) | 140K+ official FDA drug labels | None | ✅ Ready |
-| `clavis-rxnorm` | [RxNorm](https://rxnav.nlm.nih.gov) | 100K+ standardized drug names | None | 📜 Planned |
-| `clavis-opentargets` | [Open Targets](https://platform.opentargets.org) | 60K+ gene/disease targets | None | 📜 Planned |
-| `clavis-clinvar` | [ClinVar](https://www.ncbi.nlm.nih.gov/clinvar) | 2M+ genetic variants, disease links | None | 📜 Planned |
-| `clavis-string` | [STRING](https://string-db.org) | 67M+ protein interaction networks | None | 📜 Planned |
-| `clavis-pdb` | [PDB](https://www.rcsb.org) | 220K+ experimental 3D structures | None | 📜 Planned |
-| `clavis-gwas` | [GWAS Catalog](https://www.ebi.ac.uk/gwas) | 500K+ gen-variant associations | None | 📜 Planned |
-| `clavis-hpa` | [Human Protein Atlas](https://www.proteinatlas.org) | 20K+ proteins, tissue expression | None | 📜 Planned |
-| `clavis-ensembl` | [Ensembl](https://rest.ensembl.org) | Full human/multi-species genomes | None | 📜 Planned |
-| `clavis-biorxiv` | [bioRxiv/medRxiv](https://api.biorxiv.org) | 240K+ research preprints | None | 📜 Planned |
-| `clavis-chebi` | [ChEBI](https://www.ebi.ac.uk/chebi) | 60K+ chemical biology metabolites | None | 📜 Planned |
 | `clavis-intact` | [IntAct](https://www.ebi.ac.uk/intact) | 1M+ molecular interactions | None | ✅ Ready |
-| `clavis-pharmgkb` | [PharmGKB](https://api.pharmgkb.org) | 50K+ pharmacogenomic relationships | None | 📜 Planned |
-| `clavis-medlineplus` | [MedlinePlus](https://medlineplus.gov) | 40K+ patient-friendly help topics | None | 📜 Planned |
-| `clavis-nci` | [NCI Thesaurus](https://evsrestapi.nci.nih.gov) | 170K+ authoritative cancer terms | None | 📜 Planned |
-| `clavis-hmdb` | [HMDB](https://hmdb.ca) | 220K+ human body metabolites | None | 📜 Planned |
-| `clavis-biogrid` | [BioGRID](https://webservice.thebiogrid.org) | 2M+ curated bio-interactions | Free Key | 📜 Planned |
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick Start (Installation)
 
-```bash
-# 1. Clone and build
-git clone https://github.com/ladybugsaga/CLAVIS.git && cd CLAVIS
-mvn clean install
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/ladybugsaga/CLAVIS.git
+   cd CLAVIS
+   ```
 
-# 2. Configure (Optional: Add keys for higher rate limits)
-cp .env.example .env
-# Edit .env or skip if you want to use free tier
+2. **Build the project**
+   ```bash
+   mvn clean install
+   ```
 
-**That's it!** You've built the project. Now choose how to connect it below.
+3. **Configure Environment** (Optional)
+   ```bash
+   cp .env.example .env
+   # Add your API keys for higher rate limits
+   ```
 
 ---
 
 ## ⚙️ Connection & Configuration
 
-### Claude Desktop
+To use CLAVIS with an AI assistant, you must point it to the **Unified Server** JAR file.
 
-Add the following to your `claude_desktop_config.json` (usually in `%APPDATA%\Claude` on Windows or `~/Library/Application Support/Claude` on macOS):
+### Claude Desktop Setup
+
+Add the following configuration to your `claude_desktop_config.json`:
+
+> [!IMPORTANT]
+> Replace `/PATH/TO/CLAVIS/` with the actual absolute path to your cloned repository.
 
 ```json
 {
@@ -113,125 +111,30 @@ Add the following to your `claude_desktop_config.json` (usually in `%APPDATA%\Cl
 }
 ```
 
-**That's it!** Restart your AI assistant and try the test prompt below.
+---
+
+## 🧪 Verification
+
+Restart your AI assistant and use the following test prompt to verify that all systems are integrated:
+
+> **Test Prompt**: *"Research the drug Metformin. First, find its mechanism of action using ChEMBL. Then, search PubMed for clinical trials from 2024 related to its use in 'aging'. Finally, check if there are any related protein pathways in Reactome."*
 
 ---
 
-## 🧪 Unified Test Prompt
+## 🏗️ Architecture & Documentation
 
-Copy and paste this into your AI assistant to verify that all systems are working together:
+CLAVIS is built on a robust, multi-module Java architecture designed for speed and reliability.
 
-> "Research the drug **Metformin**. First, find its mechanism of action and bioactivity using **ChEMBL**. Then, search **PubMed** for clinical trials from 2023-2024 related to its use in 'aging'. Finally, check if there are any related protein pathways in **Reactome**."
+- **16 Maven modules** — 1 core + 15 database servers
+- **Token bucket rate limiting** — Intelligent handling of API quotas
+- **In-memory TTL cache** — Optimized performance for repeated queries
+- **Unified Server** — All 15 modules in a single process to save RAM
 
----
-
-## 🏗️ Architecture
-
-```
-┌─────────────────┐    MCP/stdio    ┌──────────────────┐    HTTPS    ┌──────────┐
-│   AI Assistant   │───────────────▶│  CLAVIS Server    │───────────▶│ PubMed   │
-│  (Claude, etc.)  │◀───────────────│  (Java process)   │◀───────────│ API      │
-└─────────────────┘                 └──────────────────┘            └──────────┘
-                                            │
-                                    ┌───────▼────────┐
-                                    │  clavis-core   │
-                                    │  Config, HTTP, │
-                                    │  Cache, Models │
-                                    └────────────────┘
-```
-
-- **16 Maven modules** — 1 core + 14 database servers
-- **MCP over stdio** — JSON-RPC protocol for AI clients
-- **Token bucket** rate limiting per API (auto-adjusts if no key provided)
-- **Exponential backoff** retry for transient failures
-- **In-memory TTL cache** for repeated queries
-
-→ Full details: **[Architecture](docs/architecture.md)**
-
----
-
-## 🛠️ Available Tools (PubMed)
-
-Refer to **[API Reference](docs/api-reference.md)** for the complete list of tools and their usage.
-
----
-
-## 📖 Documentation
-
-### Getting Started
-| Guide | Description |
-|-------|-------------|
-| **[Installation](docs/installation.md)** | Prerequisites, Java/Maven setup, API keys |
-| **[API Keys & Signup](docs/signup.md)** | Where to get keys + Free tier info |
-| **[Quick Start](docs/quickstart.md)** | Get running in 5 minutes |
-| **[Usage Guide](docs/usage.md)** | Connect to Claude, VS Code, Cursor, ChatGPT |
-| **[Configuration](docs/configuration.md)** | All environment variables |
-
-### Server Guides
-| Guide | Description |
-|-------|-------------|
-| **[PubMed](docs/pubmed-guide.md)** | Query syntax, examples, tips |
-| **[Europe PMC](docs/europepmc-guide.md)** | Open-access literature |
-| **[Semantic Scholar](docs/semanticscholar-guide.md)** | AI-powered features |
-| **[arXiv](docs/arxiv-guide.md)** | Preprint search |
-| **[ClinicalTrials](docs/clinicaltrials-guide.md)** | Trial registration data |
-| **[ChEMBL](docs/chembl-guide.md)** | Bioactive compounds & targets |
-| **[PubChem](docs/pubchem-guide.md)** | Chemical compounds |
-| **[UniProt](docs/uniprot-guide.md)** | Protein sequences |
-| **[KEGG](docs/kegg-guide.md)** | Biological pathways |
-| **[Reactome](docs/reactome-guide.md)** | Pathway data |
-| **[OpenFDA](docs/openfda-guide.md)** | Adverse events & recalls |
-| **[IntAct](docs/intact-guide.md)** | Molecular interactions |
-
-### Reference & Operations
-| Guide | Description |
-|-------|-------------|
-| **[API Reference](docs/api-reference.md)** | Complete tool schemas |
-| **[Architecture](docs/architecture.md)** | System design & patterns |
-| **[Performance](docs/performance.md)** | Tuning & optimization |
-| **[Security](docs/security.md)** | API key management, privacy |
-| **[Troubleshooting](docs/troubleshooting.md)** | Common issues & fixes |
-| **[FAQ](docs/faq.md)** | Frequently asked questions |
-
-### Development & Deployment
-| Guide | Description |
-|-------|-------------|
-| **[Adding Servers](docs/contributing/adding-servers.md)** | Add a new database MCP server |
-| **[Code Style](docs/contributing/code-style.md)** | Coding standards |
-| **[Docker](docs/deployment/docker.md)** | Container deployment |
-| **[Production](docs/deployment/production.md)** | Production hardening |
-| **[Contributing](CONTRIBUTING.md)** | How to contribute |
-| **[Changelog](CHANGELOG.md)** | Version history |
-
----
-
-## 🧪 Tech Stack
-
-| Component | Technology |
-|-----------|-----------|
-| Language | Java 17+ (LTS) |
-| Build | Apache Maven (Multi-Module) |
-| HTTP | OkHttp 4.12 |
-| JSON | Gson 2.11 |
-| XML | Jackson XML 2.17 |
-| Config | dotenv-java 3.0 |
-| Logging | SLF4J 2.0 + Logback |
-| Testing | JUnit 5 + Mockito 5 |
-| CI/CD | GitHub Actions |
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! See **[CONTRIBUTING.md](CONTRIBUTING.md)** for guidelines.
-
-The easiest way to contribute is to **implement a stub MCP server** — see the **[Adding Servers](docs/contributing/adding-servers.md)** guide.
-
----
-
-## 📄 License
-
-MIT License — see **[LICENSE](LICENSE)** for details.
+### 📖 Key Resources
+- **[Installation Guide](docs/installation.md)**
+- **[API Reference](docs/api-reference.md)**
+- **[Usage Guide (Cursor, VS Code, etc.)](docs/usage.md)**
+- **[Contributing](CONTRIBUTING.md)**
 
 ---
 
