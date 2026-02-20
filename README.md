@@ -76,6 +76,36 @@ graph LR
 | `clavis-crossref` | [Crossref](https://api.crossref.org) | 140M+ publications with DOIs | None | 📜 Planned |
 | `clavis-core` | [CORE](https://core.ac.uk/api-v2/) | 200M+ open access papers | None | 📜 Planned |
 | `clavis-worldbank` | [World Bank](https://api.worldbank.org/v2/) | 1,400+ health indicators | None | 📜 Planned |
+| `clavis-civic` | [CIViC](https://civicdb.org) | 10K+ cancer variants, clinical evidence | None | 📜 Planned |
+| `clavis-gnomad` | [gnomAD](https://gnomad.broadinstitute.org) | 140K+ genomes, variant frequencies | None | 📜 Planned |
+| `clavis-gtex` | [GTEx](https://gtexportal.org) | Gene expression across 54 human tissues | None | 📜 Planned |
+| `clavis-omim` | [OMIM](https://www.omim.org) | 25K+ genetic disorders, gold standard | None | 📜 Planned |
+| `clavis-hgnc` | [HUGO](https://www.genenames.org) | 45K+ official gene symbols and names | None | 📜 Planned |
+| `clavis-refseq` | [RefSeq](https://www.ncbi.nlm.nih.gov/refseq) | Standard gene/protein reference sequences | None | 📜 Planned |
+| `clavis-decipher` | [DECIPHER](https://www.deciphergenomics.org) | Rare disease variants and phenotypes | None | 📜 Planned |
+| `clavis-pharmvar` | [PharmVar](https://www.pharmvar.org) | Pharmacogene variations, star alleles | None | 📜 Planned |
+| `clavis-sider` | [SIDER](http://sideeffects.embl.de) | 140K+ drug-side effect pairs | None | 📜 Planned |
+| `clavis-stitch` | [STITCH](http://stitch.embl.de) | 9.6M+ chemical-protein interactions | None | 📜 Planned |
+| `clavis-superdrug` | [SuperDRUG2](http://cheminfo.charite.de/superdrug2) | 4.6K+ approved/investigational drugs | None | 📜 Planned |
+| `clavis-drugcentral` | [DrugCentral](https://drugcentral.org) | 4.5K+ drugs with pharmacology/targets | None | 📜 Planned |
+| `clavis-ctd` | [CTD](http://ctdbase.org) | Chemical-gene-disease relationships | None | 📜 Planned |
+| `clavis-bindingdb` | [BindingDB](https://www.bindingdb.org) | 2.5M+ drug-target binding affinities | None | 📜 Planned |
+| `clavis-zinc` | [ZINC](https://zinc.docking.org) | 750M+ purchasable compounds | None | 📜 Planned |
+| `clavis-swissmodel` | [SWISS-MODEL](https://swissmodel.expasy.org) | 4M+ protein homology models | None | 📜 Planned |
+| `clavis-emdb` | [EMDB](https://www.ebi.ac.uk/emdb) | 40K+ Cryo-EM protein structures | None | 📜 Planned |
+| `clavis-bmrb` | [BMRB](http://www.bmrb.io) | 15K+ NMR spectroscopy data entries | None | 📜 Planned |
+| `clavis-interpro` | [InterPro](https://www.ebi.ac.uk/interpro) | Functional protein families and domains | None | 📜 Planned |
+| `clavis-pfam` | [Pfam](https://www.ebi.ac.uk/interpro) | Protein families and conserved domains | None | 📜 Planned |
+| `clavis-wikipathways` | [WikiPathways](https://www.wikipathways.org) | 3K+ community-curated pathways | None | 📜 Planned |
+| `clavis-pathwaycommons` | [Pathway Commons](https://www.pathwaycommons.org) | Integrated pathway meta-database | None | 📜 Planned |
+| `clavis-metacyc` | [MetaCyc](https://metacyc.org) | 3K+ experimentally validated pathways | None | 📜 Planned |
+| `clavis-brenda` | [BRENDA](https://www.brenda-enzymes.org) | 8K+ enzymes, function and kinetics | None | 📜 Planned |
+| `clavis-cosmic` | [COSMIC](https://cancer.sanger.ac.uk/cosmic) | 10M+ cancer mutations and study data | None | 📜 Planned |
+| `clavis-alzforum` | [AlzForum](https://www.alzforum.org) | Alzheimer's genes, drugs, and models | None | 📜 Planned |
+| `clavis-malacards` | [MalaCards](https://www.malacards.org) | 22K+ integrated disease compendium | None | 📜 Planned |
+| `clavis-icd11` | [ICD-11](https://icd.who.int) | 17K+ international disease codes | None | 📜 Planned |
+| `clavis-snomed` | [SNOMED CT](https://www.snomed.org) | 350K+ clinical terminology standard | None | 📜 Planned |
+| `clavis-mesh` | [MeSH](https://www.nlm.nih.gov/mesh) | 30K+ biomedical indexing terms | None | 📜 Planned |
 
 ---
 
