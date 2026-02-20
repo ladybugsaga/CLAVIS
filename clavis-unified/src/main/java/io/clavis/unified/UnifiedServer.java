@@ -38,6 +38,8 @@ import io.clavis.corepapers.CorePapersClient;
 import io.clavis.corepapers.CorePapersTools;
 import io.clavis.zinc.ZincClient;
 import io.clavis.zinc.ZincTools;
+import io.clavis.bindingdb.BindingDbClient;
+import io.clavis.bindingdb.BindingDbTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -279,6 +281,16 @@ public class UnifiedServer extends MCPServer {
             logger.info("Registered ZINC tools");
         } catch (Exception e) {
             logger.error("Failed to register ZINC tools", e);
+        }
+
+        // 21. BindingDB
+        try {
+            var bindingDbClient = new BindingDbClient();
+            var bindingDbTools = new BindingDbTools(bindingDbClient);
+            tools.addAll(bindingDbTools.getAllTools());
+            logger.info("Registered BindingDB tools");
+        } catch (Exception e) {
+            logger.error("Failed to register BindingDB tools", e);
         }
 
         logger.info("Unified MCP Server ready with {} total tools", tools.size());

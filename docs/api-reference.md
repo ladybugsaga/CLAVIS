@@ -278,6 +278,17 @@ Standardized drug nomenclature and identifier mapping through the NLM RxNav API.
 
 ---
 
+## 📊 BindingDB Affinities (`clavis-bindingdb`)
+
+Access to 2.5M+ measured binding affinities (Ki, IC50, Kd) between drug-like molecules and protein targets.
+
+| Tool | Parameters | Description |
+|:---|:---|:---|
+| `bindingdb_get_ligands_by_uniprot` | `uniprot`, `cutoff` | Retrieve all ligands and binding affinities for a protein by its UniProt ID. |
+| `bindingdb_get_targets_by_compound` | `smiles`, `similarity` | Retrieve protein targets and affinities for a specific small molecule compound (SMILES). |
+
+---
+
 ## 🧪 ZINC Compounds (`clavis-zinc`)
 
 Access to 750M+ purchasable drug-like compounds for virtual screening via the ZINC15 API.
