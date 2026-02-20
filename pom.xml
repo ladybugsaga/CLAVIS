@@ -37,6 +37,7 @@
         <module>clavis-unified</module>
         <module>clavis-openfda</module>
         <module>clavis-intact</module>
+        <module>clavis-dailymed</module>
     </modules>
 
     <properties>

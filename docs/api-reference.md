@@ -699,33 +699,70 @@ Search drug enforcement reports.
 
 ---
 
+---
+
 ## IntAct Tools
 
 ### `intact_search_interactions`
+...
+---
 
-Search for molecular interactions by gene/protein name.
+## DailyMed Tools
+
+### `dailymed_search_spls`
+
+Search drug labels (SPLs) by drug name. Returns SetIDs and titles.
 
 **Parameters:**
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `query` | string | ✅ | — | Gene/protein name or query |
-| `page` | integer | ❌ | 0 | Page number |
-| `pageSize` | integer | ❌ | 10 | Results per page |
+| `query` | string | ✅ | — | The drug name to search for (e.g., "aspirin") |
+| `page` | number | ❌ | 1 | Page number |
+| `pageSize` | number | ❌ | 20 | Page size (max 100) |
 
 ---
 
-### `intact_get_interactors`
+### `dailymed_get_spl_details`
 
-Search for interactors (proteins/genes) in the database.
+Retrieve full metadata for a specific SPL by its SetID.
 
 **Parameters:**
-| Parameter | Type | Required | Default | Description |
-|-----------|------|----------|---------|-------------|
-| `query` | string | ✅ | — | Gene/protein name or query |
-| `page` | integer | ❌ | 0 | Page number |
-| `pageSize` | integer | ❌ | 10 | Results per page |
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `setId` | string | ✅ | The SetID of the SPL |
 
 ---
+
+### `dailymed_search_drug_names`
+
+Search for drug names matching a specific string fragment.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `query` | string | ✅ | The drug name fragment to search for |
+
+---
+
+### `dailymed_get_drug_classes`
+
+Get drug classes associated with a specific drug name.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `drugName` | string | ✅ | The drug name |
+
+---
+
+### `dailymed_get_ndcs_by_setid`
+
+Retrieve National Drug Codes (NDCs) associated with a specific SetID.
+
+**Parameters:**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `setId` | string | ✅ | The SetID of the SPL |
 
 ---
 
