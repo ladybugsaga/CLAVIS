@@ -39,6 +39,7 @@
         <module>clavis-dailymed</module>
         <module>clavis-opentargets</module>
         <module>clavis-hmdb</module>
+        <module>clavis-rxnorm</module>
         <module>clavis-unified</module>
     </modules>
 

@@ -32,6 +32,8 @@ import io.clavis.opentargets.OpenTargetsClient;
 import io.clavis.opentargets.OpenTargetsTools;
 import io.clavis.hmdb.HmdbClient;
 import io.clavis.hmdb.HmdbTools;
+import io.clavis.rxnorm.RxNormClient;
+import io.clavis.rxnorm.RxNormTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -243,6 +245,16 @@ public class UnifiedServer extends MCPServer {
             logger.info("Registered HMDB tools");
         } catch (Exception e) {
             logger.error("Failed to register HMDB tools", e);
+        }
+
+        // 18. RxNorm
+        try {
+            var rxnormClient = new RxNormClient();
+            var rxnormTools = new RxNormTools(rxnormClient);
+            tools.addAll(rxnormTools.getAllTools());
+            logger.info("Registered RxNorm tools");
+        } catch (Exception e) {
+            logger.error("Failed to register RxNorm tools", e);
         }
 
         logger.info("Unified MCP Server ready with {} total tools", tools.size());

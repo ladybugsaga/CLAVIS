@@ -266,6 +266,22 @@ Search Semantic Scholar's 200M+ papers across all fields.
 
 ---
 
+## 💊 RxNorm (`clavis-rxnorm`)
+
+Standardized drug nomenclature and identifier mapping through the NLM RxNav API.
+
+| Tool | Parameters | Description |
+|:---|:---|:---|
+| `rxnorm_search` | `name` | Search for clinical drugs by name. |
+| `rxnorm_get_rxcui` | `name` | Find an RxCUI by drug name. |
+| `rxnorm_get_properties` | `rxcui` | Retrieve all properties for an RxNorm concept. |
+
+---
+
+## 🎯 Open Targets (`clavis-opentargets`)
+
+---
+
 ### `s2_get_paper`
 
 Retrieve a paper by S2 ID, DOI, PMID, or ArXiv ID.
