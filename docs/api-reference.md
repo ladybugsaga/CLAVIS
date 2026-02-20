@@ -278,6 +278,17 @@ Standardized drug nomenclature and identifier mapping through the NLM RxNav API.
 
 ---
 
+## 🧪 CTD Toxicogenomics (`clavis-ctd`)
+
+Access to manually curated chemical-gene, chemical-disease, and gene-disease interactions from the Comparative Toxicogenomics Database.
+
+| Tool | Parameters | Description |
+|:---|:---|:---|
+| `ctd_get_chemical_interactions` | `chemical` | Retrieve curated interactions for a chemical Name or ID. |
+| `ctd_get_gene_interactions` | `gene` | Retrieve curated interactions for a gene Symbol or ID. |
+
+---
+
 ## 🌍 Ensembl Genomic Data (`clavis-ensembl`)
 
 Access to human and multi-species genomic data, including gene lookups, sequence retrieval, and variant effect prediction.

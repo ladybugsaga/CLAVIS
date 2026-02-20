@@ -6,7 +6,7 @@
 
 **Unlocking Biomedical Knowledge for AI**
 
-*A Java-based ecosystem of MCP servers providing AI assistants with direct access to 24 biomedical databases*
+*A Java-based ecosystem of MCP servers providing AI assistants with direct access to 25 biomedical databases*
 
 [![Build](https://img.shields.io/badge/build-passing-brightgreen)]()
 [![Java](https://img.shields.io/badge/Java-17%2B-blue)]()
@@ -88,7 +88,7 @@ graph LR
 | `clavis-stitch` | [STITCH](http://stitch.embl.de) | 9.6M+ chemical-protein interactions | None | 📜 Planned |
 | `clavis-superdrug` | [SuperDRUG2](http://cheminfo.charite.de/superdrug2) | 4.6K+ approved/investigational drugs | None | 📜 Planned |
 | `clavis-drugcentral` | [DrugCentral](https://drugcentral.org) | 4.5K+ drugs with pharmacology/targets | None | 📜 Planned |
-| `clavis-ctd` | [CTD](http://ctdbase.org) | Chemical-gene-disease relationships | None | 📜 Planned |
+| `clavis-ctd` | [CTD](http://ctdbase.org) | Chemical-gene-disease relationships | None | ✅ Ready |
 | `clavis-bindingdb` | [BindingDB](https://www.bindingdb.org) | 2.5M+ drug-target binding affinities | None | ✅ Ready |
 | `clavis-zinc` | [ZINC](https://zinc15.docking.org) | 750M+ purchasable drug-like compounds | None | ✅ Ready |
 | `clavis-swissmodel` | [SWISS-MODEL](https://swissmodel.expasy.org) | 4M+ protein homology models | None | 📜 Planned |

@@ -46,6 +46,8 @@ import io.clavis.clinvar.ClinVarClient;
 import io.clavis.clinvar.ClinVarTools;
 import io.clavis.ensembl.EnsemblClient;
 import io.clavis.ensembl.EnsemblTools;
+import io.clavis.ctd.CtdClient;
+import io.clavis.ctd.CtdTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -327,6 +329,16 @@ public class UnifiedServer extends MCPServer {
             logger.info("Registered Ensembl tools");
         } catch (Exception e) {
             logger.error("Failed to register Ensembl tools", e);
+        }
+
+        // 25. CTD
+        try {
+            var ctdClient = new CtdClient();
+            var ctdTools = new CtdTools(ctdClient);
+            tools.addAll(ctdTools.getAllTools());
+            logger.info("Registered CTD tools");
+        } catch (Exception e) {
+            logger.error("Failed to register CTD tools", e);
         }
 
         logger.info("Unified MCP Server ready with {} total tools", tools.size());

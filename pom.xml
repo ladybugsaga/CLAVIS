@@ -46,6 +46,7 @@
         <module>clavis-pharmvar</module>
         <module>clavis-clinvar</module>
         <module>clavis-ensembl</module>
+        <module>clavis-ctd</module>
         <module>clavis-unified</module>
     </modules>
 
