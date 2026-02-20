@@ -43,6 +43,7 @@
         <module>clavis-core-papers</module>
         <module>clavis-zinc</module>
         <module>clavis-bindingdb</module>
+        <module>clavis-pharmvar</module>
         <module>clavis-unified</module>
     </modules>
 

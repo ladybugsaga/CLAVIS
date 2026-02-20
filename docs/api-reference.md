@@ -278,6 +278,20 @@ Standardized drug nomenclature and identifier mapping through the NLM RxNav API.
 
 ---
 
+## 🧬 PharmVar Variation (`clavis-pharmvar`)
+
+Access to pharmacogene variation data, star alleles, and functional annotations from the Pharmacogene Variation Consortium.
+
+| Tool | Parameters | Description |
+|:---|:---|:---|
+| `pharmvar_list_genes` | None | List all pharmacogenes defined in the PharmVar database. |
+| `pharmvar_get_gene` | `symbol` | Retrieve detailed information for a specific gene by symbol. |
+| `pharmvar_list_alleles` | None | List all active alleles across all genes in PharmVar. |
+| `pharmvar_get_allele` | `identifier` | Retrieve details for a specific allele by PharmVar ID or name. |
+| `pharmvar_get_allele_function` | `identifier` | Retrieve the CPIC Clinical Function for an allele. |
+
+---
+
 ## 📊 BindingDB Affinities (`clavis-bindingdb`)
 
 Access to 2.5M+ measured binding affinities (Ki, IC50, Kd) between drug-like molecules and protein targets.

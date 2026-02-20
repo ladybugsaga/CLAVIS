@@ -6,7 +6,7 @@
 
 **Unlocking Biomedical Knowledge for AI**
 
-*A Java-based ecosystem of MCP servers providing AI assistants with direct access to 21 biomedical databases*
+*A Java-based ecosystem of MCP servers providing AI assistants with direct access to 22 biomedical databases*
 
 [![Build](https://img.shields.io/badge/build-passing-brightgreen)]()
 [![Java](https://img.shields.io/badge/Java-17%2B-blue)]()

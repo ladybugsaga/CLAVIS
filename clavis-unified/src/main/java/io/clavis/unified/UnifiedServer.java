@@ -40,6 +40,8 @@ import io.clavis.zinc.ZincClient;
 import io.clavis.zinc.ZincTools;
 import io.clavis.bindingdb.BindingDbClient;
 import io.clavis.bindingdb.BindingDbTools;
+import io.clavis.pharmvar.PharmVarClient;
+import io.clavis.pharmvar.PharmVarTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -291,6 +293,16 @@ public class UnifiedServer extends MCPServer {
             logger.info("Registered BindingDB tools");
         } catch (Exception e) {
             logger.error("Failed to register BindingDB tools", e);
+        }
+
+        // 22. PharmVar
+        try {
+            var pharmVarClient = new PharmVarClient();
+            var pharmVarTools = new PharmVarTools(pharmVarClient);
+            tools.addAll(pharmVarTools.getAllTools());
+            logger.info("Registered PharmVar tools");
+        } catch (Exception e) {
+            logger.error("Failed to register PharmVar tools", e);
         }
 
         logger.info("Unified MCP Server ready with {} total tools", tools.size());
