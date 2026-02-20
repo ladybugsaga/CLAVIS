@@ -6,7 +6,7 @@
 
 **Unlocking Biomedical Knowledge for AI**
 
-*A Java-based ecosystem of MCP servers providing AI assistants with direct access to 15+ biomedical databases*
+*A Java-based ecosystem of MCP servers providing AI assistants with direct access to 20 biomedical databases*
 
 [![Build](https://img.shields.io/badge/build-passing-brightgreen)]()
 [![Java](https://img.shields.io/badge/Java-17%2B-blue)]()
@@ -90,7 +90,7 @@ graph LR
 | `clavis-drugcentral` | [DrugCentral](https://drugcentral.org) | 4.5K+ drugs with pharmacology/targets | None | 📜 Planned |
 | `clavis-ctd` | [CTD](http://ctdbase.org) | Chemical-gene-disease relationships | None | 📜 Planned |
 | `clavis-bindingdb` | [BindingDB](https://www.bindingdb.org) | 2.5M+ drug-target binding affinities | None | 📜 Planned |
-| `clavis-zinc` | [ZINC](https://zinc.docking.org) | 750M+ purchasable compounds | None | 📜 Planned |
+| `clavis-zinc` | [ZINC](https://zinc15.docking.org) | 750M+ purchasable drug-like compounds | None | ✅ Ready |
 | `clavis-swissmodel` | [SWISS-MODEL](https://swissmodel.expasy.org) | 4M+ protein homology models | None | 📜 Planned |
 | `clavis-emdb` | [EMDB](https://www.ebi.ac.uk/emdb) | 40K+ Cryo-EM protein structures | None | 📜 Planned |
 | `clavis-bmrb` | [BMRB](http://www.bmrb.io) | 15K+ NMR spectroscopy data entries | None | 📜 Planned |
