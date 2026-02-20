@@ -48,6 +48,8 @@ import io.clavis.ensembl.EnsemblClient;
 import io.clavis.ensembl.EnsemblTools;
 import io.clavis.ctd.CtdClient;
 import io.clavis.ctd.CtdTools;
+import io.clavis.gtex.GtexClient;
+import io.clavis.gtex.GtexTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -339,6 +341,16 @@ public class UnifiedServer extends MCPServer {
             logger.info("Registered CTD tools");
         } catch (Exception e) {
             logger.error("Failed to register CTD tools", e);
+        }
+
+        // 26. GTEx
+        try {
+            var gtexClient = new GtexClient();
+            var gtexTools = new GtexTools(gtexClient);
+            tools.addAll(gtexTools.getAllTools());
+            logger.info("Registered GTEx tools");
+        } catch (Exception e) {
+            logger.error("Failed to register GTEx tools", e);
         }
 
         logger.info("Unified MCP Server ready with {} total tools", tools.size());

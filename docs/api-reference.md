@@ -278,6 +278,19 @@ Standardized drug nomenclature and identifier mapping through the NLM RxNav API.
 
 ---
 
+## 🫁 GTEx Portal (`clavis-gtex`)
+
+Access to human tissue-specific gene expression and eQTL data.
+
+| Tool | Parameters | Description |
+|:---|:---|:---|
+| `gtex_get_median_expression` | `geneId`, `tissueSiteDetailId` | Retrieve median gene expression across human tissues. |
+| `gtex_get_top_expressed_genes` | `tissueSiteDetailId` | Retrieve top expressed genes for a specified human tissue. |
+| `gtex_get_egenes` | `geneId`, `tissueSiteDetailId` | Retrieve significant eGenes (associated with genetic variation). |
+| `gtex_get_eqtls` | `geneId`, `tissueSiteDetailId` | Retrieve significant single-tissue eQTL associations. |
+
+---
+
 ## 🧪 CTD Toxicogenomics (`clavis-ctd`)
 
 Access to manually curated chemical-gene, chemical-disease, and gene-disease interactions from the Comparative Toxicogenomics Database.

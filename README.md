@@ -6,7 +6,7 @@
 
 **Unlocking Biomedical Knowledge for AI**
 
-*A Java-based ecosystem of MCP servers providing AI assistants with direct access to 25 biomedical databases*
+*A Java-based ecosystem of MCP servers providing AI assistants with direct access to 26 biomedical databases*
 
 [![Build](https://img.shields.io/badge/build-passing-brightgreen)]()
 [![Java](https://img.shields.io/badge/Java-17%2B-blue)]()
@@ -78,7 +78,7 @@ graph LR
 | `clavis-worldbank` | [World Bank](https://api.worldbank.org/v2/) | 1,400+ health indicators | None | 📜 Planned |
 | `clavis-civic` | [CIViC](https://civicdb.org) | 10K+ cancer variants, clinical evidence | None | 📜 Planned |
 | `clavis-gnomad` | [gnomAD](https://gnomad.broadinstitute.org) | 140K+ genomes, variant frequencies | None | 📜 Planned |
-| `clavis-gtex` | [GTEx](https://gtexportal.org) | Gene expression across 54 human tissues | None | 📜 Planned |
+| `clavis-gtex` | [GTEx](https://gtexportal.org) | Tissue-specific gene expression | None | ✅ Ready |
 | `clavis-omim` | [OMIM](https://www.omim.org) | 25K+ genetic disorders, gold standard | None | 📜 Planned |
 | `clavis-hgnc` | [HUGO](https://www.genenames.org) | 45K+ official gene symbols and names | None | 📜 Planned |
 | `clavis-refseq` | [RefSeq](https://www.ncbi.nlm.nih.gov/refseq) | Standard gene/protein reference sequences | None | 📜 Planned |

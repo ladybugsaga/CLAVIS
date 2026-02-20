@@ -155,6 +155,11 @@
             <artifactId>clavis-ctd</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.clavis</groupId>
+            <artifactId>clavis-gtex</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
