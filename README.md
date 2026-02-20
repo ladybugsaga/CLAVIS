@@ -85,22 +85,23 @@ mvn clean install
 cp .env.example .env
 # Edit .env or skip if you want to use free tier
 
-# 3. Connect to Claude Desktop (or Cline/VS Code)
-# Add to your mcpServers configuration:
+### ⚙️ Claude Desktop Configuration
+
+Add the following to your `claude_desktop_config.json` (usually in `%APPDATA%\Claude` on Windows or `~/Library/Application Support/Claude` on macOS):
 
 ```json
 {
   "mcpServers": {
     "clavis-unified": {
-      "disabled": false,
-      "timeout": 60,
-      "type": "stdio",
       "command": "java",
       "args": [
         "-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener",
         "-jar",
-        "/home/ladybug/CLAVIS/clavis-unified/target/clavis-unified-1.0.0-SNAPSHOT.jar"
-      ]
+        "/PATH/TO/CLAVIS/clavis-unified/target/clavis-unified-1.0.0-SNAPSHOT.jar"
+      ],
+      "disabled": false,
+      "timeout": 60,
+      "type": "stdio"
     }
   }
 }
