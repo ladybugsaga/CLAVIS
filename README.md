@@ -83,7 +83,7 @@ graph LR
 | `clavis-hgnc` | [HUGO](https://www.genenames.org) | 45K+ official gene symbols and names | None | 📜 Planned |
 | `clavis-refseq` | [RefSeq](https://www.ncbi.nlm.nih.gov/refseq) | Standard gene/protein reference sequences | None | 📜 Planned |
 | `clavis-decipher` | [DECIPHER](https://www.deciphergenomics.org) | Rare disease variants and phenotypes | None | 📜 Planned |
-| `clavis-pharmvar` | [PharmVar](https://www.pharmvar.org) | Pharmacogene variations, star alleles | None | 📜 Planned |
+| `clavis-pharmvar` | [PharmVar](https://www.pharmvar.org) | Pharmacogene variations, star alleles | None | ✅ Ready |
 | `clavis-sider` | [SIDER](http://sideeffects.embl.de) | 140K+ drug-side effect pairs | None | 📜 Planned |
 | `clavis-stitch` | [STITCH](http://stitch.embl.de) | 9.6M+ chemical-protein interactions | None | 📜 Planned |
 | `clavis-superdrug` | [SuperDRUG2](http://cheminfo.charite.de/superdrug2) | 4.6K+ approved/investigational drugs | None | 📜 Planned |
