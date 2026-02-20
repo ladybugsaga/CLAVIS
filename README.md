@@ -71,8 +71,11 @@ graph LR
 | `clavis-pharmgkb` | [PharmGKB](https://api.pharmgkb.org) | 50K+ pharmacogenomic relationships | None | 📜 Planned |
 | `clavis-medlineplus` | [MedlinePlus](https://medlineplus.gov) | 40K+ patient-friendly help topics | None | 📜 Planned |
 | `clavis-nci` | [NCI Thesaurus](https://evsrestapi.nci.nih.gov) | 170K+ authoritative cancer terms | None | 📜 Planned |
-| `clavis-hmdb` | [HMDB](https://hmdb.ca) | 220K+ human body metabolites | None | 📜 Planned |
+| `clavis-hmdb` | [HMDB](https://hmdb.ca) | 220K+ human body metabolites | None | ✅ Ready |
 | `clavis-biogrid` | [BioGRID](https://webservice.thebiogrid.org) | 2M+ curated bio-interactions | Free Key | 📜 Planned |
+| `clavis-crossref` | [Crossref](https://api.crossref.org) | 140M+ publications with DOIs | None | 📜 Planned |
+| `clavis-core` | [CORE](https://core.ac.uk/api-v2/) | 200M+ open access papers | None | 📜 Planned |
+| `clavis-worldbank` | [World Bank](https://api.worldbank.org/v2/) | 1,400+ health indicators | None | 📜 Planned |
 
 ---
 

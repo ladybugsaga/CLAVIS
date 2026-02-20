@@ -38,6 +38,7 @@
         <module>clavis-intact</module>
         <module>clavis-dailymed</module>
         <module>clavis-opentargets</module>
+        <module>clavis-hmdb</module>
         <module>clavis-unified</module>
     </modules>
 

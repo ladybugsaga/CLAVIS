@@ -30,6 +30,8 @@ import io.clavis.dailymed.DailyMedClient;
 import io.clavis.dailymed.DailyMedTools;
 import io.clavis.opentargets.OpenTargetsClient;
 import io.clavis.opentargets.OpenTargetsTools;
+import io.clavis.hmdb.HmdbClient;
+import io.clavis.hmdb.HmdbTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -231,6 +233,16 @@ public class UnifiedServer extends MCPServer {
             logger.info("Registered Open Targets tools");
         } catch (Exception e) {
             logger.error("Failed to register Open Targets tools", e);
+        }
+
+        // 17. HMDB
+        try {
+            var hmdbClient = new HmdbClient();
+            var hmdbTools = new HmdbTools(hmdbClient);
+            tools.addAll(hmdbTools.getAllTools());
+            logger.info("Registered HMDB tools");
+        } catch (Exception e) {
+            logger.error("Failed to register HMDB tools", e);
         }
 
         logger.info("Unified MCP Server ready with {} total tools", tools.size());
