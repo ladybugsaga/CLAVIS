@@ -74,7 +74,7 @@ graph LR
 | `clavis-hmdb` | [HMDB](https://hmdb.ca) | 220K+ human body metabolites | None | ✅ Ready |
 | `clavis-biogrid` | [BioGRID](https://webservice.thebiogrid.org) | 2M+ curated bio-interactions | Free Key | 📜 Planned |
 | `clavis-crossref` | [Crossref](https://api.crossref.org) | 140M+ publications with DOIs | None | 📜 Planned |
-| `clavis-core` | [CORE](https://core.ac.uk/api-v2/) | 200M+ open access papers | None | 📜 Planned |
+| `clavis-core-papers` | [CORE](https://core.ac.uk/api-v2/) | 200M+ open access papers | None | ✅ Ready |
 | `clavis-worldbank` | [World Bank](https://api.worldbank.org/v2/) | 1,400+ health indicators | None | 📜 Planned |
 | `clavis-civic` | [CIViC](https://civicdb.org) | 10K+ cancer variants, clinical evidence | None | 📜 Planned |
 | `clavis-gnomad` | [gnomAD](https://gnomad.broadinstitute.org) | 140K+ genomes, variant frequencies | None | 📜 Planned |

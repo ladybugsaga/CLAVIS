@@ -40,6 +40,7 @@
         <module>clavis-opentargets</module>
         <module>clavis-hmdb</module>
         <module>clavis-rxnorm</module>
+        <module>clavis-core-papers</module>
         <module>clavis-unified</module>
     </modules>
 

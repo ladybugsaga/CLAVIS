@@ -278,6 +278,17 @@ Standardized drug nomenclature and identifier mapping through the NLM RxNav API.
 
 ---
 
+## 📚 CORE Papers (`clavis-core-papers`)
+
+Access to 200M+ open-access research papers from repositories worldwide via the CORE v3 API.
+
+| Tool | Parameters | Description |
+|:---|:---|:---|
+| `core_search_papers` | `query`, `limit` | Search for research papers in CORE. |
+| `core_get_paper_details` | `coreId` | Retrieve full metadata for a specific paper by CORE ID. |
+
+---
+
 ## 🎯 Open Targets (`clavis-opentargets`)
 
 ---

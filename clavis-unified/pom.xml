@@ -120,6 +120,11 @@
             <artifactId>clavis-rxnorm</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.clavis</groupId>
+            <artifactId>clavis-core-papers</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

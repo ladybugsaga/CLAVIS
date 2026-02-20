@@ -34,6 +34,8 @@ import io.clavis.hmdb.HmdbClient;
 import io.clavis.hmdb.HmdbTools;
 import io.clavis.rxnorm.RxNormClient;
 import io.clavis.rxnorm.RxNormTools;
+import io.clavis.corepapers.CorePapersClient;
+import io.clavis.corepapers.CorePapersTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -255,6 +257,16 @@ public class UnifiedServer extends MCPServer {
             logger.info("Registered RxNorm tools");
         } catch (Exception e) {
             logger.error("Failed to register RxNorm tools", e);
+        }
+
+        // 19. CORE
+        try {
+            var corePapersClient = new CorePapersClient();
+            var corePapersTools = new CorePapersTools(corePapersClient);
+            tools.addAll(corePapersTools.getAllTools());
+            logger.info("Registered CORE tools");
+        } catch (Exception e) {
+            logger.error("Failed to register CORE tools", e);
         }
 
         logger.info("Unified MCP Server ready with {} total tools", tools.size());
