@@ -92,16 +92,15 @@ cp .env.example .env
 {
   "mcpServers": {
     "clavis-unified": {
+      "disabled": false,
+      "timeout": 60,
+      "type": "stdio",
       "command": "java",
       "args": [
         "-Dlogback.statusListenerClass=ch.qos.logback.core.status.NopStatusListener",
         "-jar",
-        "/absolute/path/to/CLAVIS/clavis-unified/target/clavis-unified-1.0.0-SNAPSHOT.jar"
-      ],
-      "env": {
-        "NCBI_API_KEY": "your_key",
-        "SEMANTIC_SCHOLAR_API_KEY": "your_key"
-      }
+        "/home/ladybug/CLAVIS/clavis-unified/target/clavis-unified-1.0.0-SNAPSHOT.jar"
+      ]
     }
   }
 }
