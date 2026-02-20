@@ -278,6 +278,17 @@ Standardized drug nomenclature and identifier mapping through the NLM RxNav API.
 
 ---
 
+## 🧪 ZINC Compounds (`clavis-zinc`)
+
+Access to 750M+ purchasable drug-like compounds for virtual screening via the ZINC15 API.
+
+| Tool | Parameters | Description |
+|:---|:---|:---|
+| `zinc_search` | `query` | Search for substances in ZINC15 by name, SMILES, or property query. |
+| `zinc_get_compound` | `zincId` | Retrieve detailed chemical metadata for a specific ZINC compound. |
+
+---
+
 ## 📚 CORE Papers (`clavis-core-papers`)
 
 Access to 200M+ open-access research papers from repositories worldwide via the CORE v3 API.

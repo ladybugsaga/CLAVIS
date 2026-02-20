@@ -41,6 +41,7 @@
         <module>clavis-hmdb</module>
         <module>clavis-rxnorm</module>
         <module>clavis-core-papers</module>
+        <module>clavis-zinc</module>
         <module>clavis-unified</module>
     </modules>
 

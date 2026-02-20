@@ -36,6 +36,8 @@ import io.clavis.rxnorm.RxNormClient;
 import io.clavis.rxnorm.RxNormTools;
 import io.clavis.corepapers.CorePapersClient;
 import io.clavis.corepapers.CorePapersTools;
+import io.clavis.zinc.ZincClient;
+import io.clavis.zinc.ZincTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -267,6 +269,16 @@ public class UnifiedServer extends MCPServer {
             logger.info("Registered CORE tools");
         } catch (Exception e) {
             logger.error("Failed to register CORE tools", e);
+        }
+
+        // 20. ZINC
+        try {
+            var zincClient = new ZincClient();
+            var zincTools = new ZincTools(zincClient);
+            tools.addAll(zincTools.getAllTools());
+            logger.info("Registered ZINC tools");
+        } catch (Exception e) {
+            logger.error("Failed to register ZINC tools", e);
         }
 
         logger.info("Unified MCP Server ready with {} total tools", tools.size());

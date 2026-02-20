@@ -125,6 +125,11 @@
             <artifactId>clavis-core-papers</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.clavis</groupId>
+            <artifactId>clavis-zinc</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
